@@ -30,6 +30,10 @@ In this project, we are developing a comprehensive system that connects LMS and 
 
 ![Alt Text](ERdiagram_TechnoMate/ERdiagram.svg)
 
+## Relational Mapping
+
+![Alt Text](ERdiagram_TechnoMate/RelationalMappingUpdate.svg)
+
 
 1. Clone the repository:
 
