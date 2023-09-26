@@ -38,4 +38,4 @@ In this project, we are developing a comprehensive system that connects LMS and 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-surajnaveen/technomate.git
+   git clone https://github.com/your-surajnaveen/technomate
