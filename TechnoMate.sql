@@ -51,8 +51,7 @@ ALTER TABLE Student ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 ALTER TABLE Lecture ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 
 -- Insert sample data into the User table--
-INSERT INTO User(NIC,First_name,Last_name,Address,Email,Gender,Dod)
-VALUES
+INSERT INTO User VALUES
     ('678901234A', 'Sarah', 'Johnson', '321 Elm St', 'sarahjohnson@email.com', 'Female', '1980-08-05'),
     ('789012345B', 'David', 'Smith', '567 Oak St', 'davidsmith@email.com', 'Male', '1981-06-17'),
     ('890123456C', 'Sophia', 'Wilson', '654 Pine St', 'sophiawilson@email.com', 'Male', '1988-12-03'),
@@ -80,7 +79,15 @@ VALUES
     ('234567890w', 'Alice', 'Smith', '456 Elm St', 'alicesmith@email.com', 'Female', '1998-03-20'),
     ('345678901x', 'Michael', 'Johnson', '789 Oak St', 'michaeljohnson@email.com', 'Male', '1999-07-10'),
     ('456789012y', 'Emily', 'Wilson', '987 Pine St', 'emilywilson@email.com', 'Female', '2000-11-25'),
-    ('567890123z', 'Daniel', 'Brown', '543 Cedar St', 'danielbrown@email.com', 'Male', '2001-04-30');
+    ('567890123z', 'Daniel', 'Brown', '543 Cedar St', 'danielbrown@email.com', 'Male', '2001-04-30'),
+    ('345678901A', 'Anna', 'Williams', '111 Pine St', 'annawilliams@email.com', 'Female', '1999-04-1'),
+    ('456789012B', 'Michael', 'Lee', '222 Elm St', 'michaellee@email.com', 'Male', '2001-08-30'),
+    ('567890123C', 'Grace', 'Moore', '333 Oak St', 'gracemoore@email.com', 'Female', '2000-11-20'),
+    ('678901234D', 'Christopher', 'Clark', '444 Cedar St', 'christopherclark@email.com', 'Male', '1998-02-10'),
+    ('789012345E', 'Sophia', 'Harris', '555 Birch St', 'sophiaharris@email.com', 'Female', '1990-03-25'),
+    ('890123456F', 'Lucas', 'Roberts', '666 Maple St', 'lucasroberts@email.com', 'Male', '1992-05-17'),
+    ('901234567G', 'Olivia', 'Smith', '777 Pine St', 'oliviasmith@email.com', 'Male', '1996-07-05'),
+    ('012345678H', 'William', 'Jones', '888 Elm St', 'williamjones@email.com', 'Male', '1985-08-29');
     
 -- Insert sample data into the User_Contact table--
 INSERT INTO User_Contact(NIC, Contact1, Contact2) VALUES
@@ -88,8 +95,8 @@ INSERT INTO User_Contact(NIC, Contact1, Contact2) VALUES
     ('789012345B', 2345678901, 8765432100),
     ('890123456C', 3456789012, 7654321098),
     ('901234567D', 4567890123, 6543210987),
-    ('012345678E', 5678901234, 5432109876),
-    ('123456789F', 6789012345, NULL),
+    ('012345678E', 5678901234, NULL),
+    ('123456789F', 6789012345, 5432109876),
     ('234567890G', 6789012344, 5678901239),
     ('345678901H', 7890123457, 4567890122),
     ('456789012I', 7890123455, 4567890124),
@@ -103,17 +110,19 @@ INSERT INTO User_Contact(NIC, Contact1, Contact2) VALUES
     ('234567890Q', 7890123456, 7654321097);
     ('234567890R', 6789012349, 5678901244),
     ('345678901S', 3456789033, 9876543111),
-    ('456789012T', 5678901333, 8765432111)
+    ('456789012T', 5678901333, 8765432111);
 
 -- Insert sample data into the Admin table--
 INSERT INTO Admin (Admin_ID, NIC, Role) VALUES
     ('A1', '678901234A', 'Administrator'),
     ('A2', '789012345B', 'Administrator');
 
-INSERT INTO Tech_officer (Tech_officer_ID, NIC, Role, Attendence_ID)VALUES
-    ('T2', '890123456C', 'Tech Officer', 'A345678901'),
-    ('T3', '901234567D', 'Tech Officer', 'A456789012'),
-    ('T4', '012345678E', 'Tech Officer', 'A567890123'),
+INSERT INTO Tech_officer (Tech_officer_ID, NIC, Role)VALUES
+    ('T2', '890123456C', 'Tech Officer'),
+    ('T3', '901234567D', 'Tech Officer'),
+    ('T4', '012345678E', 'Tech Officer'),
+    ('T5', '901234567G', 'Tech Officer'),
+    ('T6', '012345678H', 'Tech Officer');
 
 -- Insert sample data into the Dean table--
 INSERT INTO Dean(Dean_ID, NIC)VALUES
@@ -128,7 +137,7 @@ INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
     ('L5', '678901234K', 'Professor', 'DP01');
 
 -- Insert sample data into the Student table--
-INSERT INTO Student (Student_ID, NIC, Type, Department_ID) VALUES
+INSERT INTO Student (Student_ID, NIC, Type, Department_ID,) VALUES
     ('S1', '789012345L', 'Graduate', 'DP01'),
     ('S2', '890123456M', 'Graduate', 'DP02'),
     ('S3', '901234567N', 'Graduate', 'DP03'),
@@ -144,4 +153,8 @@ INSERT INTO Student (Student_ID, NIC, Type, Department_ID) VALUES
     ('S13', '345678901x', 'Undergraduate', 'DP01'),
     ('S14', '456789012y', 'Undergraduate', 'DP02'),
     ('S15', '567890123z', 'Undergraduate', 'DP03');
-    
+    ('S16', '345678901A', 'Undergraduate', 'D001'),
+    ('S17', '456789012B', 'Undergraduate', 'D001'),
+    ('S18', '567890123C', 'Undergraduate', 'D002'),
+    ('S19', '789012345E', 'Undergraduate', 'D003'),
+    ('S520', '890123456F', 'Undergraduate', 'D003');   
