@@ -71,7 +71,7 @@ VALUES
     ('BST2331', 'Electronic', 3, 45, 'GPA', 'DP003');
 
 -- Insert sample data into the Attendance table
-INSERT INTO Attendance (Attendance_ID, Date, Theory, Practical, Course_code, Medical_Id, Student_ID)
+INSERT INTO Attendance (Attendance_ID, Date, Theory, Practical, Course_code, Student_ID, Medical_Id,Teach_officer_ID)
 VALUES
     ('ATTIT001', '2023-03-10', 'Present','Present', 'ICT1212', 'S4', NULL,'T4'),
     ('ATTIT002', '2023-03-10', 'Present','Present', 'ICT1212', 'S5', NULL,'T4'),
@@ -131,7 +131,7 @@ VALUES
     ('ATTBT0041', '2023-03-11', 'Present','Present', 'BST4024', 'S10', NULL,'T6'),
     ('ATTBT0042', '2023-03-11', 'Absent', 'Absent', 'BST4024', 's15', 'M1001','T6'),
     ('ATTBT0043', '2023-03-11', 'Present','Present', 'BST2343', 'S7', NULL,'T6'),
-    ('ATTBT0044', '2023-03-11', 'Present','Present', 'BST2343', 'S10', NULL),'T6',
+    ('ATTBT0044', '2023-03-11', 'Present','Present', 'BST2343', 'S10', NULL,'T6'),
     ('ATTBT0045', '2023-03-11', 'Absent', 'Absent', 'BST2343', 's15', 'M1001','T6'),
 
     ('ATTET0046', '2023-03-11', 'Present','Present', 'ICT1242', 'S3', NULL,'T6'),
@@ -164,6 +164,7 @@ VALUES
 ALTER TABLE Course ADD FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID);
 ALTER TABLE Attendance ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
 ALTER TABLE Attendance ADD FOREIGN KEY(Medical_Id) REFERENCES Medical(Medical_Id);
+ALTER TABLE Attendance ADD FOREIGN KEY(Teach_officer_ID) REFERENCES Tech_officer(Teach_officer_ID);
 ALTER TABLE Notice ADD FOREIGN KEY(lecture_ID) REFERENCES lecture(lecture_ID);
 ALTER TABLE Medical ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
 ALTER TABLE Medical ADD FOREIGN KEY(Tech_officer) REFERENCES Tech_officer(Teach_officer_ID);
@@ -173,7 +174,7 @@ ALTER TABLE Medical ADD FOREIGN KEY(Tech_officer) REFERENCES Tech_officer(Teach_
 
 CREATE USER 'Admin'@'localhost' IDENTIFIED BY 'admin123';
 CREATE USER 'Dean'@'localhost' IDENTIFIED BY 'dean123';
-CREATE USER 'lecturer'@'localhost' IDENTIFIED BY 'leturer123';
+CREATE USER 'lecturer'@'localhost' IDENTIFIED BY 'lecturer123';
 CREATE USER 'Tech_officer'@'localhost' IDENTIFIED BY 'to123';
 CREATE USER 'Student'@'localhost' IDENTIFIED BY 'student123';
 
