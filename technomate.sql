@@ -28,7 +28,7 @@ CREATE TABLE Attendance (
     Student_ID varchar(5),
     Medical_Id char(5),
     Teach_officer_ID varchar(5),
-    PRIMARY KEY(Attendance_ID);
+    PRIMARY KEY(Attendance_ID)
 );
 
 CREATE TABLE Notice (
