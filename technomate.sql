@@ -10,15 +10,6 @@ CREATE TABLE Course (
     PRIMARY KEY(Course_code)
 );
 
-CREATE TABLE Assignment (
-    Assignment_ID char(10),
-    Course_code char(7),
-    Student_ID varchar(5),
-    Marks int,
-    Date DATE,
-    PRIMARY KEY(Assignment_ID)
-);
-
 CREATE TABLE Attendance (
     Attendance_ID char(10),
     Date DATE,
@@ -42,7 +33,7 @@ CREATE TABLE Notice (
 CREATE TABLE Medical (
     Medical_Id char(5),
     Student_ID varchar(5),
-    Teach_officer_ID varchar(5),
+    Tech_officer_ID varchar(5),
     Start_Date DATE,
     End_Date DATE,
     PRIMARY KEY(Medical_Id)
@@ -86,16 +77,82 @@ VALUES
     ('ATTIT010', '2023-03-11', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
 
     ('ATTIT0011', '2023-03-12', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0012', '2023-03-12', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0012', '2023-03-12', 'Absant','Present', 'ICT1212', 'S5', NULL,'T6'),
     ('ATTIT0013', '2023-03-12', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
     ('ATTIT0014', '2023-03-12', 'Absant', 'Absant', 'ICT1212', 'S11', 'M1003','T6'),
     ('ATTIT0015', '2023-03-12', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
 
     ('ATTIT0051', '2023-03-13', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0052', '2023-03-13', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0052', '2023-03-13', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
     ('ATTIT0053', '2023-03-13', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
     ('ATTIT0054', '2023-03-13', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
     ('ATTIT0055', '2023-03-13', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-14', 'Absant','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-14', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-14', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-14', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-14', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-15', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-15', 'Absant','Absant', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-15', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-15', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-15', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-16', 'Absant','Absant', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-16', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-16', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-16', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-16', 'Present','Present', 'ICT1212', 'S13', 'M1005','T6'),
+
+    ('ATTIT0051', '2023-03-17', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-17', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-17', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-17', 'Absant', 'Present', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-17', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-18', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-18', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-18', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-18', 'Present', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-18', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-19', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-19', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-19', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-19', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-19', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-20', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-20', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-20', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-20', 'Present', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-20', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-21', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-21', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-21', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-21', 'Present','Present', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-21', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-22', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-22', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-22', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-22', 'Present', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-22', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-23', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-23', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-23', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-23', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-23', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0051', '2023-03-24', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0052', '2023-03-24', 'Absant','Present', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0053', '2023-03-24', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0054', '2023-03-24', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0055', '2023-03-24', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
 
     ('ATTBT0016', '2023-03-10', 'Present','Present', 'BST4024', 'S7', NULL,'T3'),
     ('ATTBT0017', '2023-03-10', 'Present','Present', 'BST4024', 'S10', NULL,'T3'),
@@ -153,12 +210,13 @@ VALUES
     ('N5007','L5' '2023-05-15', 'Graduation ceremony details for this year');
 
 -- Insert sample data into the Medical table
-INSERT INTO Medical (Medical_Id,Student_ID,Tech_officer, Start_Date, End_Date)
+INSERT INTO Medical (Medical_Id,Student_ID, Tech_officer_ID, Start_Date, End_Date)
 VALUES
     ('M1001','s15','T1', '2023-03-10', '2023-03-12'),
     ('M1002','s09','T2', '2023-03-10', '2023-03-11'),
     ('M1003','s11','T2', '2023-03-11', '2023-03-12'),
     ('M1004','s11','T3', '2023-03-10', '2023-03-11');
+    ('M1005','s13','T4', '2023-03-16', '2023-03-17');
 
 --Adding foreign keys
 ALTER TABLE Course ADD FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID);
@@ -180,21 +238,21 @@ CREATE USER 'Student'@'localhost' IDENTIFIED BY 'student123';
 
 --PRIVILAGES AND GRANT OPTION
 
-GRANT ALL PRIVILEGES ON 'Technomate'.* TO 'Admin'@'localhost' WITH GRANT OPTION;
-FLUSH PRIVILAGES;
+GRANT ALL PRIVILEGES ON technomate.* TO 'Admin'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 
-GRANT ALL PRIVILEGES ON 'Technomate'.* TO 'Dean'@'localhost';
-FLUSH PRIVILAGES;
+GRANT ALL PRIVILEGES ON technomate.* TO 'Dean'@'localhost';
+FLUSH PRIVILEGES;
 
-GRANT ALL PRIVILEGES ON 'Technomate'.* TO 'Lecturer'@'localhost';
-FLUSH PRIVILAGES;
+GRANT ALL PRIVILEGES ON technomate.* TO 'Lecturer'@'localhost';
+FLUSH PRIVILEGES;
 
-GRANT SELECT,INSERT,UPDATE ON 'Technomate'.'Attendance' TO 'Tech_officer'@'localhost';
-FLUSH PRIVILAGES;
-GRANT SELECT,INSERT,UPDATE ON 'Technomate'.'Medical' TO 'Tech_officer'@'localhost';
-FLUSH PRIVILAGES;
+GRANT SELECT,INSERT,UPDATE ON technomate.attendance TO 'Tech_officer'@'localhost';
+FLUSH PRIVILEGES;
+GRANT SELECT,INSERT,UPDATE ON technomate.medical TO 'Tech_officer'@'localhost';
+FLUSH PRIVILEGES;
 
-GRANT SELECT ON 'Technomate'.'Attendance' TO 'Student'@'localhost';
-FLUSH PRIVILAGES;
-GRANT SELECT ON 'Technomate'.'Marks' TO 'Student'@'localhost';
-FLUSH PRIVILAGES;
+GRANT SELECT ON technomate.attendance TO 'Student'@'localhost';
+FLUSH PRIVILEGES;
+GRANT SELECT ON technomate.marks TO 'Student'@'localhost';
+FLUSH PRIVILEGES;
