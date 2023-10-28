@@ -1,19 +1,22 @@
-CREATE TABLE Notice_Lecture (Notice_ID CHAR(5),Lecture_ID CHAR(5));
 CREATE TABLE Lecture_Student (Student_ID CHAR(5),Lecture_ID CHAR(5));
 CREATE TABLE Student_Notice (Student_ID CHAR(5),Notice_ID CHAR(5));
-CREATE TABLE Student_Marks (Student_ID CHAR(5),Mask_ID CHAR(5));
 CREATE TABLE Lecture_Course (Lecture_ID CHAR(5),Course_ID CHAR(5));
+CREATE TABLE Lecture(
+    Lecture_ID VARCHAR(5) PRIMARY KEY,
+    NIC varchar(15),
+    Position varchar(50),
+    Department_ID CHAR(5));
 
-INSERT INTO Notice_Lecture VALUES(
-('N5001','L1'),
-('N5002','L3'),
-('N5003','L5'),
-('N5004','L3'),
-('N5005','L2'),
-('N5006','L4'),
-('N5007','L1'));
 
-INSERT INTO Notice_Lecture VALUES(
+ALTER TABLE Lecture_Student ADD FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID);
+ALTER TABLE Lecture_Student ADD FOREIGN KEY (Lecture_ID) REFERENCES Lecture(Lecture_ID);
+ALTER TABLE Student_Notice ADD FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID);
+ALTER TABLE Student_Notice ADD FOREIGN KEY (Notice_ID) REFERENCES Notice(Notice_ID);
+ALTER TABLE Lecture_Course ADD FOREIGN KEY (Lecture_ID) REFERENCES Lecture(Lecture_ID);
+ALTER TABLE Lecture_Course ADD FOREIGN KEY (Course_code) REFERENCES Course_code(Course_code);
+ALTER TABLE Lecture ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+
+INSERT INTO Lecture_Student VALUES(
     ('S1','L1'),
     ('S1','L5'),
     ('S2','L2'),
@@ -37,7 +40,7 @@ INSERT INTO Notice_Lecture VALUES(
     ('S15','L3'));
 
 
-INSERT INTO student_Notice VALUES (
+INSERT INTO Student_Notice VALUES (
     ('S1','N5003'),
     ('S1','N5001'),
     ('S2','N5003'),
@@ -52,16 +55,6 @@ INSERT INTO student_Notice VALUES (
     ('S8','N5005'),
     ('S9','N5002'),
     ('S9','N5006'));
-
-INSERT INTO Student_Marks VALUES (
-    ('S1','MKS01'),
-    ('S2','MKS02'),
-    ('S3','MKS03'),
-    ('S4','MKS04'),
-    ('S5','MKS05'),
-    ('S6','MKS06'),
-    ('S7','MKS07'),
-    ('S8','MKS08'));
 
 
     INSERT INTO Lecture_Cource VALUES
@@ -81,3 +74,12 @@ INSERT INTO Student_Marks VALUES (
     ('L3','BST2331'),
     ('L4','ENG1212'),
     ('L2','TCS1212');
+
+
+INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
+    ('L1', '234567890G', 'ICT_HED', 'DP01'),
+    ('L2', '345678901H', 'ET_HED', 'DP02'),
+    ('L3', '456789012I', 'BST_HED', 'DP03'),
+    ('L4', '567890123J', 'Lecturer', 'DP03'),
+    ('L5', '678901234K', 'Professor', 'DP01'),
+    ('L6', '789012345B', 'Lecture','DP2');
