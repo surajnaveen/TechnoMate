@@ -1,7 +1,7 @@
 --Create Tables
 
 CREATE TABLE Course (
-    Course_code char(7),
+    Course_code char(10),
     Name varchar(50),
     Credit int,
     Course_hours int,
@@ -46,8 +46,10 @@ INSERT INTO Course (Course_code, Name, Credit, Course_hours, Course_type, Depart
 VALUES
     ('ICT1233', 'Server Side Web Development', 3, 45, 'GPA', 'DP001'),
     ('ICT1213', 'Descrete Mathamatics', 4, 60, 'GPA', 'DP001'),
-    ('ICT1253', 'Computer Networkig', 3, 45, 'GPA', 'DP001'),
+    ('ICT1253T', 'Computer Networkig Theory', 3, 45, 'GPA', 'DP001'),
+    ('ICT1253P', 'Computer Networkig Practical', 3, 45, 'GPA', 'DP001'),
     ('ICT1212', 'DBMS', 3, 45, 'GPA', 'DP001'),
+    ('ICT1222', 'DBMS practicum', 3, 45, 'GPA', 'DP001'),
     ('ICT1242', 'Computer Architecher', 3, 45, 'GPA', 'DP001'),
     
     ('TMS2022', 'Physics', 4, 60, 'GPA', 'DP003'),
@@ -62,143 +64,188 @@ VALUES
     ('BST2331', 'Electronic', 3, 45, 'GPA', 'DP003');
 
 -- Insert sample data into the Attendance table
-INSERT INTO Attendance (Attendance_ID, Date, Theory, Practical, Course_code, Student_ID, Medical_Id,Teach_officer_ID)
+INSERT INTO Attendance (Attendance_ID, Date, Attendance, Practical, Course_code, Student_ID, Medical_Id,Teach_officer_ID)
 VALUES
-    ('ATTIT001', '2023-03-10', 'Present','Present', 'ICT1212', 'S4', NULL,'T4'),
-    ('ATTIT002', '2023-03-10', 'Present','Present', 'ICT1212', 'S5', NULL,'T4'),
-    ('ATTIT003', '2023-03-10', 'Present','Present', 'ICT1212', 'S8', NULL,'T4'),
-    ('ATTIT004', '2023-03-10', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T4'),
-    ('ATTIT005', '2023-03-10', 'Present','Present', 'ICT1212', 'S13', NULL,'T4'),
+    ('ATTIT001', '2023-03-10', 'present', 'ICT1212', 'S4', NULL,'T4'),
+    ('ATTIT002', '2023-03-10', 'present', 'ICT1212', 'S5', NULL,'T4'),
+    ('ATTIT003', '2023-03-10', 'Absant', 'ICT1212', 'S8', NULL,'T4'),
+    ('ATTIT004', '2023-03-10', 'present', 'ICT1212', 'S11', NULL,'T4'),
+    ('ATTIT005', '2023-03-10', 'present', 'ICT1212', 'S13', NULL,'T4'),
 
-    ('ATTIT006', '2023-03-11', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT007', '2023-03-11', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT008', '2023-03-11', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT009', '2023-03-11', 'Absant', 'Absant', 'ICT1212', 'S11', 'M1003','T6'),
-    ('ATTIT010', '2023-03-11', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT006', '2023-03-11', 'precent', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT007', '2023-03-11', 'precent', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT008', '2023-03-11', 'precent', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT009', '2023-03-11', 'Absant', 'ICT1212', 'S11', 'M1003','T6'),
+    ('ATTIT010', '2023-03-11', 'precent', 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0076', '2023-03-12', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0075', '2023-03-12', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0074', '2023-03-12', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0073', '2023-03-12', 'Absant', 'Absant', 'ICT1212', 'S11', 'M1003','T6'),
-    ('ATTIT0072', '2023-03-12', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0076', '2023-03-12', 'Absant', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0075', '2023-03-12', 'precent', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0074', '2023-03-12', 'precent', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0073', '2023-03-12', 'Absant', 'ICT1212', 'S11', 'M1003','T6'),
+    ('ATTIT0072', '2023-03-12', 'precent', 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0012', '2023-03-13', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0013', '2023-03-13', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0014', '2023-03-13', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0015', '2023-03-13', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0016', '2023-03-13', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0012', '2023-03-13', 'precent', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0013', '2023-03-13', 'precent', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0014', '2023-03-13', 'precent', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0015', '2023-03-13', 'precent', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0016', '2023-03-13', 'precent', 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0017', '2023-03-14', 'Absant','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0018', '2023-03-14', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0019', '2023-03-14', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0020', '2023-03-14', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0021', '2023-03-14', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0017', '2023-03-14', 'precent', 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0018', '2023-03-14', 'precent', 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0019', '2023-03-14', 'precent', 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0020', '2023-03-14', 'precent', 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0021', '2023-03-14', 'precent', 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0022', '2023-03-15', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0023', '2023-03-15', 'Absant','Absant', 'ICT1212', 'S5', 'M1006','T6'),
-    ('ATTIT0024', '2023-03-15', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0025', '2023-03-15', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0026', '2023-03-15', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0022', '2023-03-15','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0023', '2023-03-15','Absant' ,'ICT1212', 'S5', 'M1006','T6'),
+    ('ATTIT0024', '2023-03-15','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0025', '2023-03-15','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0026', '2023-03-15','precent' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0027', '2023-03-16', 'Absant','Absant', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0028', '2023-03-16', 'Present','Present', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0029', '2023-03-16', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0030', '2023-03-16', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0031', '2023-03-16', 'Present','Present', 'ICT1212', 'S13', 'M1005','T6'),
+    ('ATTIT0027', '2023-03-16','precent' ,'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0028', '2023-03-16','precent' , 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0029', '2023-03-16','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0030', '2023-03-16','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0031', '2023-03-16','Absant' , 'ICT1212', 'S13', 'M1005','T6'),
 
-    ('ATTIT0032', '2023-03-17', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0033', '2023-03-17', 'Absant','Present', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0034', '2023-03-17', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0035', '2023-03-17', 'Absant', 'Present', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0036', '2023-03-17', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0032', '2023-03-17','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0033', '2023-03-17','precent' , 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0034', '2023-03-17','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0035', '2023-03-17','Absant' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0036', '2023-03-17','precent' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0037', '2023-03-18', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0038', '2023-03-18', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0039', '2023-03-18', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0040', '2023-03-18', 'Present', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0041', '2023-03-18', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0037', '2023-03-18','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0038', '2023-03-18','precent' , 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0039', '2023-03-18','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0040', '2023-03-18','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0041', '2023-03-18','precent' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0042', '2023-03-19', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0043', '2023-03-19', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0044', '2023-03-19', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0045', '2023-03-19', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0046', '2023-03-19', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0042', '2023-03-19','Absant' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0043', '2023-03-19','precent' , 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0044', '2023-03-19','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0045', '2023-03-19','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0046', '2023-03-19','precent' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0047', '2023-03-20', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0048', '2023-03-20', 'Absant','Absant', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0049', '2023-03-20', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0050', '2023-03-20', 'Present', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0051', '2023-03-20', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0047', '2023-03-20','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0048', '2023-03-20','Absant' ,'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0049', '2023-03-20','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0050', '2023-03-20','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0051', '2023-03-20','precent' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0052', '2023-03-21', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0053', '2023-03-21', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0054', '2023-03-21', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0055', '2023-03-21', 'Present','Present', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0056', '2023-03-21', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0052', '2023-03-21','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0053', '2023-03-21','Absant' , 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0054', '2023-03-21','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0055', '2023-03-21','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0056', '2023-03-21','Absant' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0057', '2023-03-22', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0058', '2023-03-22', 'Present','Absant', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0059', '2023-03-22', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0060', '2023-03-22', 'Present', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0061', '2023-03-22', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0057', '2023-03-22','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0058', '2023-03-22','precent' ,'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0059', '2023-03-22','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0060', '2023-03-22','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0061', '2023-03-22','precent' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0062', '2023-03-23', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0063', '2023-03-23', 'Absant','Absant', 'ICT1212', 'S5', 'M1007','T6'),
-    ('ATTIT0064', '2023-03-23', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0065', '2023-03-23', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0066', '2023-03-23', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0062', '2023-03-23','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0063', '2023-03-23','Absant' ,'ICT1212', 'S5', 'M1007','T6'),
+    ('ATTIT0064', '2023-03-23','precent' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0065', '2023-03-23','precent' , 'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0066', '2023-03-23','precent' , 'ICT1212', 'S13', NULL,'T6'),
 
-    ('ATTIT0067', '2023-03-24', 'Present','Present', 'ICT1212', 'S4', NULL,'T6'),
-    ('ATTIT0068', '2023-03-24', 'Absant','Present', 'ICT1212', 'S5', NULL,'T6'),
-    ('ATTIT0069', '2023-03-24', 'Present','Present', 'ICT1212', 'S8', NULL,'T6'),
-    ('ATTIT0070', '2023-03-24', 'Absant', 'Absant', 'ICT1212', 'S11', NULL,'T6'),
-    ('ATTIT0071', '2023-03-24', 'Present','Present', 'ICT1212', 'S13', NULL,'T6'),
+    ('ATTIT0067', '2023-03-24','precent' , 'ICT1212', 'S4', NULL,'T6'),
+    ('ATTIT0068', '2023-03-24','precent' , 'ICT1212', 'S5', NULL,'T6'),
+    ('ATTIT0069', '2023-03-24','Absant' , 'ICT1212', 'S8', NULL,'T6'),
+    ('ATTIT0070', '2023-03-24','precent' ,'ICT1212', 'S11', NULL,'T6'),
+    ('ATTIT0071', '2023-03-24','precent' , 'ICT1212', 'S13', NULL,'T6'),
+-
+    ('ATTIT0072', '2023-03-10', 'present', 'ICT1222', 'S4', NULL,'T4'),
+    ('ATTIT0073', '2023-03-10', 'present', 'ICT1222', 'S5', NULL,'T4'),
+    ('ATTIT0074', '2023-03-10', 'present', 'ICT1222', 'S8', NULL,'T4'),
+    ('ATTIT0075', '2023-03-10', 'present', 'ICT1222', 'S11', NULL,'T4'),
+    ('ATTIT0076', '2023-03-10', 'present', 'ICT1222', 'S13', NULL,'T4'),
 
--- End of ICT attendance
+    ('ATTIT0077', '2023-03-11', 'precent', 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0078', '2023-03-11', 'precent', 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0079', '2023-03-11', 'precent', 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0080', '2023-03-11', 'Absant', 'ICT1222', 'S11', 'M1003','T6'),
+    ('ATTIT0081', '2023-03-11', 'precent', 'ICT1222', 'S13', NULL,'T6'),
 
-    ('ATTBT0016', '2023-03-10', 'Present','Present', 'BST4024', 'S7', NULL,'T3'),
-    ('ATTBT0017', '2023-03-10', 'Present','Present', 'BST4024', 'S10', NULL,'T3'),
-    ('ATTBT0018', '2023-03-10', 'Absent', 'Absent', 'BST4024', 's15', 'M1001','T3'),
+    ('ATTIT0082', '2023-03-12', 'Absant', 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0082', '2023-03-12', 'precent', 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0083', '2023-03-12', 'precent', 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0084', '2023-03-12', 'Absant', 'ICT12122', 'S11', 'M1003','T6'),
+    ('ATTIT0086', '2023-03-12', 'precent', 'ICT1222', 'S13', NULL,'T6'),
 
-    ('ATTBT0019', '2023-03-10', 'Present','Present', 'BST2343', 'S7', NULL,'T6'),
-    ('ATTBT0020', '2023-03-10', 'Present','Present', 'BST2343', 'S10', NULL,'T6'),
-    ('ATTBT0021', '2023-03-10', 'Absent','Absent', 'BST2343', 's15', 'M1001','T6'),
+    ('ATTIT0087', '2023-03-13', 'precent', 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0088', '2023-03-13', 'precent', 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0089', '2023-03-13', 'precent', 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0090', '2023-03-13', 'Absant', 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0091', '2023-03-13', 'precent', 'ICT1222', 'S13', NULL,'T6'),
 
-    ('ATTET0022', '2023-03-10', 'Present','Present', 'TMS2022', 'S6', NULL,'T2'),
-    ('ATTET0023', '2023-03-10', 'Absent', 'Absent', 'TMS2022', 'S9', 'M1002','T2'),
-    ('ATTET0024', '2023-03-10', 'Present','Present', 'TMS2022', 'S12', NULL,'T2'),
-    ('ATTET0025', '2023-03-10', 'Present','Present', 'TMS2022', 'S14', NULL,'T2'),
+    ('ATTIT0092', '2023-03-14', 'precent', 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0093', '2023-03-14', 'precent', 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0094', '2023-03-14', 'precent', 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0095', '2023-03-14', 'precent', 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0096', '2023-03-14', 'precent', 'ICT1222', 'S13', NULL,'T6'),
 
-    ('ATTET0026', '2023-03-11', 'Present','Present', 'TMS6302', 'S6', NULL,'T5'),
-    ('ATTET0027', '2023-03-11', 'Absent', 'Absent', 'TMS6302', 'S9', 'M1002','T5'),
-    ('ATTET0028', '2023-03-11', 'Present','Present', 'TMS6302', 'S12', NULL,'T5'),
-    ('ATTET0029', '2023-03-11', 'Present','Present', 'TMS6302', 'S14', NULL,'T5'),
+    ('ATTIT0097', '2023-03-15','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0098', '2023-03-15','Absant' ,'ICT1222', 'S5', 'M1006','T6'),
+    ('ATTIT0099', '2023-03-15','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0100', '2023-03-15','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0101', '2023-03-15','precent' , 'ICT1222', 'S13', NULL,'T6'),
 
-    ('ATTIT0030', '2023-03-11', 'Present','Present', 'ICT1253', 'S4', NULL,'T5'),
-    ('ATTIT0031', '2023-03-11', 'Present','Present', 'ICT1253', 'S5', NULL,'T5'),
-    ('ATTIT0032', '2023-03-11', 'Present','Present', 'ICT1253', 'S8', NULL,'T5'),
-    ('ATTIT0033', '2023-03-11', 'Absant', 'Absant', 'ICT1253', 'S11', 'M1003','T5'),
-    ('ATTIT0034', '2023-03-11', 'Present','Present', 'ICT1253', 'S13', NULL,'T5'),
+    ('ATTIT0102', '2023-03-16','precent' ,'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0103', '2023-03-16','precent' , 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0104', '2023-03-16','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0105', '2023-03-16','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0106', '2023-03-16','Absant' , 'ICT1222', 'S13', 'M1005','T6'),
 
-    ('ATTIT0035', '2023-03-11', 'Present','Present', 'ICT1242', 'S4', NULL,'T3'),
-    ('ATTIT0036', '2023-03-11', 'Present','Present', 'ICT1242', 'S5', NULL,'T3'),
-    ('ATTIT0037', '2023-03-11', 'Present','Present', 'ICT1242', 'S8', NULL,'T3'),
-    ('ATTIT0038', '2023-03-11', 'Absant', 'Absant', 'ICT1242', 'S11', 'M1003','T3'),
-    ('ATTIT0039', '2023-03-11', 'Present','Present', 'ICT1242', 'S13', NULL,'T3'),
+    ('ATTIT0107', '2023-03-17','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0108', '2023-03-17','Absant' , 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0109', '2023-03-17','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0110', '2023-03-17','present' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0111', '2023-03-17','precent' , 'ICT1222', 'S13', NULL,'T6'),
 
-    ('ATTBT0040', '2023-03-11', 'Present','Present', 'BST4024', 'S7', NULL,'T6'),
-    ('ATTBT0041', '2023-03-11', 'Present','Present', 'BST4024', 'S10', NULL,'T6'),
-    ('ATTBT0042', '2023-03-11', 'Absent', 'Absent', 'BST4024', 's15', 'M1001','T6'),
-    ('ATTBT0043', '2023-03-11', 'Present','Present', 'BST2343', 'S7', NULL,'T6'),
-    ('ATTBT0044', '2023-03-11', 'Present','Present', 'BST2343', 'S10', NULL,'T6'),
-    ('ATTBT0045', '2023-03-11', 'Absent', 'Absent', 'BST2343', 's15', 'M1001','T6'),
+    ('ATTIT0112', '2023-03-18','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0113', '2023-03-18','precent' , 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0114', '2023-03-18','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0115', '2023-03-18','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0116', '2023-03-18','precent' , 'ICT1222', 'S13', NULL,'T6'),
 
-    ('ATTET0046', '2023-03-11', 'Present','Present', 'ICT1242', 'S3', NULL,'T6'),
-    ('ATTET0047', '2023-03-11', 'Absent', 'Absent', 'ICT1242', 'S4', 'M1002','T6'),
-    ('ATTET0048', '2023-03-11', 'Present','Present', 'ICT1242', 'S5', NULL,'T6'),
-    ('ATTET0049', '2023-03-11', 'Present','Present', 'ICT1242', 'S6', NULL,'T6'),
-    ('ATTET0050', '2023-03-11', 'Absent', 'Absent', 'ICT1242', 'S7', NULL,'T6');
+    ('ATTIT0117', '2023-03-19','Absant' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0118', '2023-03-19','Absant' , 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0119', '2023-03-19','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0120', '2023-03-19','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0121', '2023-03-19','Absant' , 'ICT1222', 'S13', NULL,'T6'),
 
+    ('ATTIT0122', '2023-03-20','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0123', '2023-03-20','Absant' ,'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0124', '2023-03-20','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0125', '2023-03-20','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0126', '2023-03-20','precent' , 'ICT1222', 'S13', NULL,'T6'),
+
+    ('ATTIT0127', '2023-03-21','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0128', '2023-03-21','Absant' , 'ICT122', 'S5', NULL,'T6'),
+    ('ATTIT0129', '2023-03-21','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0130', '2023-03-21','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0131', '2023-03-21','Absant' , 'ICT1222', 'S13', NULL,'T6'),
+
+    ('ATTIT0132', '2023-03-22','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0133', '2023-03-22','precent' ,'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0134', '2023-03-22','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0135', '2023-03-22','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0136', '2023-03-22','precent' , 'ICT1222', 'S13', NULL,'T6'),
+
+    ('ATTIT0137', '2023-03-23','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0138', '2023-03-23','Absant' ,'ICT1222', 'S5', 'M1007','T6'),
+    ('ATTIT0139', '2023-03-23','precent' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0140', '2023-03-23','precent' , 'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0141', '2023-03-23','precent' , 'ICT1222', 'S13', NULL,'T6'),
+
+    ('ATTIT0142', '2023-03-24','precent' , 'ICT1222', 'S4', NULL,'T6'),
+    ('ATTIT0144', '2023-03-24','precent' , 'ICT1222', 'S5', NULL,'T6'),
+    ('ATTIT0146', '2023-03-24','Absant' , 'ICT1222', 'S8', NULL,'T6'),
+    ('ATTIT0148', '2023-03-24','precent' ,'ICT1222', 'S11', NULL,'T6'),
+    ('ATTIT0149', '2023-03-24','precent' , 'ICT1222', 'S13', NULL,'T6'),
+-
 
 -- Insert sample data into the Notice table
 INSERT INTO Notice (Notice_ID,lecture_ID, Date, description)
@@ -217,9 +264,9 @@ VALUES
     ('M1001','s15','T1', '2023-03-10', '2023-03-12'),
     ('M1002','s09','T2', '2023-03-10', '2023-03-11'),
     ('M1003','s11','T2', '2023-03-11', '2023-03-12'),
-    ('M1004','s11','T3', '2023-03-10', '2023-03-11');
-    ('M1005','s13','T4', '2023-03-16', '2023-03-17');
-    ('M1006','s5','T4', '2023-03-15', '2023-03-16');
+    ('M1004','s11','T3', '2023-03-10', '2023-03-11'),
+    ('M1005','s13','T4', '2023-03-16', '2023-03-17'),
+    ('M1006','s5','T4', '2023-03-15', '2023-03-16'),
     ('M1007','s5','T4', '2023-03-23', '2023-03-16');
 
 --Adding foreign keys
@@ -262,90 +309,116 @@ GRANT SELECT ON technomate.marks TO 'Student'@'localhost';
 FLUSH PRIVILEGES;
 
 --Attendance Related Function--
-
---All student Theory Attendance, Subject by Subject without Medical
-SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'THEORY Attendance percentage'
+--All student Attendance, Subject by Subject without Medical
+SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'Attendance percentage'
 FROM Attendance 
-WHERE Theory = 'Present'
+WHERE Attendance = 'Present'
 GROUP BY Student_ID,Course_code;
 
---All studence Theory Attendance above 80 present without Medical
-SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'THEORY Attendance percentage'
+--All studence Attendance above 80 present without Medical
+SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'Attendance percentage'
 FROM Attendance 
-WHERE Theory = 'Present'
+WHERE Attendance = 'Present'
 GROUP BY Student_ID,Course_code
 HAVING ((COUNT( Attendance_ID))*100/15)>80;
 
---All student Practical Attendance, Subject by Subject without Medical
-SELECT Student_ID,Course_code,COUNT( Attendance_ID)*100/15 as 'Practical Attendance percentage'
+--All student Attendance, Subject by Subject with Medical
+--view table
+CREATE OR REPLACE VIEW Practical_Attendance AS
+SELECT Student_ID,Course_code,COUNT( Attendance_ID)*100/15 as 'Attendance percentage'
 FROM Attendance 
-WHERE Practical = 'Present'
+WHERE Attendance = 'Present' AND Medical_Id IS NOT NULL
 GROUP BY Student_ID,Course_code;
 
---All studence Practical Attendance above 80 present without Medical
-SELECT Student_ID,Course_code,COUNT( Attendance_ID)*100/15 as 'Practical Attendance percentage'
-FROM Attendance 
-WHERE Practical = 'Present'
-GROUP BY Student_ID,Course_code
-HAVING ((COUNT( Attendance_ID))*100/15)>80;
+SELECT * FROM Practical_Attendance;
 
---All student Theory Attendance, Subject by Subject with Medical
-SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'THEORY Attendance percentage'
+--All student Attendance, Subject by Subject with Medical
+--view table
+CREATE OR REPLACE VIEW Theory_Attendance AS
+SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'Attendance percentage'
 FROM Attendance 
-WHERE Theory = 'Present' OR Medical_Id IS NOT NULL
+WHERE Attendance = 'Present' OR Medical_Id IS NOT NULL
 GROUP BY Student_ID,Course_code;
 
---All studence Theory Attendance above 80 present with Medical
-SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'THEORY Attendance percentage'
-FROM Attendance 
-WHERE Theory = 'Present'
-GROUP BY Student_ID,Course_code
-HAVING ((COUNT( Attendance_ID))*100/15)>80;
+SELECT * FROM Theory_Attendance;
 
---All student Practical Attendance, Subject by Subject with Medical above 80 precent
-SELECT Student_ID,Course_code,COUNT( Attendance_ID)*100/15 as 'Practical Attendance percentage'
+--All studence Attendance above 80 present with Medical
+SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'Attendance percentage'
 FROM Attendance 
-WHERE Practical = 'Present' or Medical_Id IS NOT NULL
+WHERE Attendance = 'Present' OR Medical_Id IS NOT NULL
 GROUP BY Student_ID,Course_code
 HAVING ((COUNT( Attendance_ID))*100/15)>80;
 
 --by giving the course code 
---theory subject without medical
+-- without medical
 SELECT Student_ID,COUNT( Attendance_ID)*100/15 AS 'percentage',IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
 FROM attendance
 WHERE Course_code='ICT1212' AND Theory='Present'
 GROUP BY Student_ID;
 
---theory subject with medical
-SELECT Student_ID,COUNT( Attendance_ID)*100/15 AS 'percentage',IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
+-- CREATE PROCEDURE Function to view attendance by subject
+DELIMITER //
+CREATE PROCEDURE AttendanceForSubject ( subject char(10) )
+BEGIN
+SELECT Student_ID,COUNT( Attendance_ID)*100/15 AS 'percentage',
+IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
 FROM attendance
-WHERE Course_code='ICT1212' AND (Theory='Present' OR Medical_Id IS NOT NULL)
+WHERE Course_code=subject AND (Attendance='Present' OR Medical_Id IS NOT NULL)
 GROUP BY Student_ID;
+End//
+DELIMITER ;
 
---Practical subject without medical
-SELECT Student_ID,COUNT( Attendance_ID)*100/15 AS 'percentage',IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
-FROM attendance
-WHERE Course_code='ICT1212' AND Theory='Present'
-GROUP BY Student_ID;
+CALL AttendanceForSubject('ICT1212');
 
---Practical subject with medical
-SELECT Student_ID,COUNT( Attendance_ID)*100/15 AS 'percentage',IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
+--with medical
+SELECT Student_ID,COUNT( Attendance_ID)*100/15 AS 'percentage',
+IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
 FROM attendance
-WHERE Course_code='ICT1212' AND (Theory='Present' OR Medical_Id IS NOT NULL)
+WHERE Course_code='ICT1222' AND (Attendance='Present' OR Medical_Id IS NOT NULL)
 GROUP BY Student_ID;
 
 --for all the subjects with percentage and eligibility 
 SELECT Course_code,Student_ID,(COUNT( Attendance_ID))*100/15 as 'percentage',
 IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
 FROM Attendance 
-WHERE Theory = 'Present' OR Medical_Id IS NOT NULL
+WHERE Attendance = 'Present' OR Medical_Id IS NOT NULL
 GROUP BY Student_ID,Course_code;
 
 --as individuals by giving the registration no 
 SELECT Course_code,Student_ID,(COUNT( Attendance_ID))*100/15 as 'percentage',
 IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
 FROM Attendance 
-WHERE (Theory = 'Present' OR Medical_Id IS NOT NULL) AND Student_ID='s5' 
+WHERE (Attendance = 'Present' OR Medical_Id IS NOT NULL) AND Student_ID='s5' 
 GROUP BY Course_code,Student_ID;
 
---ATTENDANCE for practical and as combined
+
+--as individuals by giving the registration no (CREATE PROCEDURE)
+DELIMITER //
+CREATE PROCEDURE AttendanceForStudent (
+studentId varchar(5))
+BEGIN
+SELECT Course_code,Student_ID,(COUNT( Attendance_ID))*100/15 as 'percentage'
+IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
+FROM Attendance 
+WHERE (Attendance = 'Present' OR Medical_Id IS NOT NULL) AND Student_ID=studentId
+GROUP BY Course_code,Student_ID;
+END //
+DELIMITER ;
+
+CALL AttendanceForStudent('ICT1212');
+
+--Attendance for Student and subject
+DELIMITER //
+CREATE PROCEDURE SubjectAndStudent(
+studentId varchar(5),
+subjectId char(10))
+BEGIN
+SELECT Course_code,Student_ID,(COUNT( Attendance_ID))*100/15 as 'percentage',
+IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
+FROM Attendance
+WHERE (Attendance = 'Present' OR Medical_Id IS NOT NULL) AND Student_ID=studentId AND Course_code=subjectId
+GROUP BY Course_code,Student_ID;
+END //
+DELIMITER ;
+
+CALL SubjectAndStudent ('s4','ICT1212');
