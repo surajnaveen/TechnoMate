@@ -10,21 +10,14 @@ CREATE TABLE User(
     Dod DATE);
 
 CREATE TABLE User_Contact(
-    NIC VARCHAR(5) PRIMARY KEY,
-    Contact1 INT(10),
-    Contact2 INT(10));
+    NIC VARCHAR(15) PRIMARY KEY,
+    Contact1 VARCHAR(11),
+    Contact2 VARCHAR(11));
 
 CREATE TABLE Admin(
     Admin_ID VARCHAR(5) PRIMARY KEY,
     NIC varchar(15),
-    Role varchar(50),
-    Department_ID CHAR(5));
-
-CREATE TABLE Tech_officer(
-    Teach_officer_ID VARCHAR(5) PRIMARY KEY,
-    NIC varchar(15),
-    Role varchar(50),
-    Attendence_ID CHAR(10));
+    Role varchar(50));
 
 CREATE TABLE Dean(
     Dean_ID VARCHAR(5),
@@ -36,19 +29,6 @@ CREATE TABLE Student(
     Type varchar(30),
     Department_ID CHAR(5));
 
-CREATE TABLE Lecture(
-    Lecture_ID VARCHAR(5) PRIMARY KEY,
-    NIC varchar(15),
-    Position varchar(50),
-    Department_ID CHAR(5));
-
---Add Foreign key--
-ALTER TABLE User_Contact ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Admin ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Tech_officer ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Dean ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Student ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Lecture ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 
 -- Insert sample data into the User table--
 INSERT INTO User VALUES
@@ -88,56 +68,39 @@ INSERT INTO User VALUES
     ('890123456F', 'Lucas', 'Roberts', '666 Maple St', 'lucasroberts@email.com', 'Male', '1992-05-17'),
     ('901234567G', 'Olivia', 'Smith', '777 Pine St', 'oliviasmith@email.com', 'Male', '1996-07-05'),
     ('012345678H', 'William', 'Jones', '888 Elm St', 'williamjones@email.com', 'Male', '1985-08-29');
-    
 -- Insert sample data into the User_Contact table--
-INSERT INTO User_Contact(NIC, Contact1, Contact2) VALUES
-    ('678901234A', 1234567890, 9876543210),
-    ('789012345B', 2345678901, 8765432100),
-    ('890123456C', 3456789012, 7654321098),
-    ('901234567D', 4567890123, 6543210987),
-    ('012345678E', 5678901234, NULL),
-    ('123456789F', 6789012345, 5432109876),
-    ('234567890G', 6789012344, 5678901239),
-    ('345678901H', 7890123457, 4567890122),
-    ('456789012I', 7890123455, 4567890124),
-    ('567890123J', 8901234567, 3456789011),
-    ('678901234K', 9012345678, 2345678900),
-    ('789012345L', 1234567899, NULL),
-    ('890123456M', 3456789013, 7654321099),
-    ('901234567N', 5678901230, 5432109877),
-    ('012345678O', 6789012346, 4567890126),
-    ('123456789P', 2345678001, 8765432109),
-    ('234567890Q', 7890123456, 7654321097);
-    ('234567890R', 6789012349, 5678901244),
-    ('345678901S', 3456789033, 9876543111),
-    ('456789012T', 5678901333, 8765432111);
+INSERT INTO User_Contact VALUES
+    ('678901234A', '0734567890', '07876543210'),
+    ('789012345B', '0745678901', '07765432100'),
+    ('890123456C', '0756789012', '07654321098'),
+    ('901234567D', '0767890123', '07543210987'),
+    ('012345678E', '0778901234', NULL),
+    ('123456789F', '0789012345', '07432109876'),
+    ('234567890G', '0789012344', '07678901239'),
+    ('345678901H', '0790123457', '07567890122'),
+    ('456789012I', '0790123455', '07567890124'),
+    ('567890123J', '0701234567', '07456789011'),
+    ('678901234K', '0712345678', '07345678900'),
+    ('789012345L', '0734567899', NULL),
+    ('890123456M', '0756789013', '07654321099'),
+    ('901234567N', '0778901230', '07432109877'),
+    ('012345678O', '0789012346', '07567890126'),
+    ('123456789P', '0745678001', '07765432109'),
+    ('234567890Q', '0790123456', '07654321097'),
+    ('234567890R', '0789012349', '07678901244'),
+    ('345678901S', '0756789033', '07876543111'),
+    ('456789012T', '0778901333', '07765432111');
 
 -- Insert sample data into the Admin table--
 INSERT INTO Admin (Admin_ID, NIC, Role) VALUES
-    ('A1', '678901234A', 'Administrator'),
-    ('A2', '789012345B', 'Administrator');
-
-INSERT INTO Tech_officer (Tech_officer_ID, NIC, Role)VALUES
-    ('T2', '890123456C', 'Tech Officer'),
-    ('T3', '901234567D', 'Tech Officer'),
-    ('T4', '012345678E', 'Tech Officer'),
-    ('T5', '901234567G', 'Tech Officer'),
-    ('T6', '012345678H', 'Tech Officer');
+    ('A1', '678901234A', 'Administrator');
 
 -- Insert sample data into the Dean table--
-INSERT INTO Dean(Dean_ID, NIC)VALUES
-    ('123456789F', '123456789P');
+INSERT INTO Dean(Dean_ID, NIC)VALUES('D1', '123456789P');
 
--- Insert sample data into the Lecture table--
-INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
-    ('L1', '234567890G', 'Lecturer', 'DP01'),
-    ('L2', '345678901H', 'Assistant Professor', 'DP02'),
-    ('L3', '456789012I', 'Lecturer', 'DP03'),
-    ('L4', '567890123J', 'Lecturer', 'DP04'),
-    ('L5', '678901234K', 'Professor', 'DP01');
 
 -- Insert sample data into the Student table--
-INSERT INTO Student (Student_ID, NIC, Type, Department_ID,) VALUES
+INSERT INTO Student (Student_ID, NIC, Type, Department_ID) VALUES
     ('S1', '789012345L', 'Graduate', 'DP01'),
     ('S2', '890123456M', 'Graduate', 'DP02'),
     ('S3', '901234567N', 'Graduate', 'DP03'),
@@ -152,9 +115,15 @@ INSERT INTO Student (Student_ID, NIC, Type, Department_ID,) VALUES
     ('S12', '789012345W', 'Undergraduate', 'DP02'),
     ('S13', '345678901x', 'Undergraduate', 'DP01'),
     ('S14', '456789012y', 'Undergraduate', 'DP02'),
-    ('S15', '567890123z', 'Undergraduate', 'DP03');
+    ('S15', '567890123z', 'Undergraduate', 'DP03'),
     ('S16', '345678901A', 'Undergraduate', 'D001'),
     ('S17', '456789012B', 'Undergraduate', 'D001'),
     ('S18', '567890123C', 'Undergraduate', 'D002'),
     ('S19', '789012345E', 'Undergraduate', 'D003'),
-    ('S520', '890123456F', 'Undergraduate', 'D003');   
+    ('S520', '890123456F', 'Undergraduate', 'D003');
+
+    --Add Foreign key
+ALTER TABLE User_Contact ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+ALTER TABLE Admin ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+ALTER TABLE Dean ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+ALTER TABLE Student ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
