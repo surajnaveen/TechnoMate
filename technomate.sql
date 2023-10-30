@@ -44,11 +44,11 @@ CREATE TABLE Medical (
 INSERT INTO Course (Course_code, Name, Credit, Course_hours, Course_type, Department_ID)
 VALUES
     ('ICT1233', 'Server Side Web Development', 3, 45, 'GPA', 'DP001'),
-    ('ICT1213', 'Descrete Mathamatics', 4, 60, 'GPA', 'DP001'),
+    ('ICT1213', 'Descrete Mathamatics', 3, 60, 'GPA', 'DP001'),
     ('ICT1253T', 'Computer Networkig Theory', 2, 45, 'GPA', 'DP001'),
     ('ICT1253P', 'Computer Networkig Practical', 1, 45, 'GPA', 'DP001'),
-    ('ICT1212', 'DBMS', 3, 45, 'GPA', 'DP001'),
-    ('ICT1222', 'DBMS practicum', 3, 45, 'GPA', 'DP001'),
+    ('ICT1212', 'DBMS', 2, 45, 'GPA', 'DP001'),
+    ('ICT1222', 'DBMS practicum', 2, 45, 'GPA', 'DP001'),
     ('ICT1242', 'Computer Architecher', 3, 45, 'GPA', 'DP001'),
     ('ENG1212', 'English', 2, 45, 'Non GPA', 'DP001'),
     
@@ -398,11 +398,6 @@ GRANT SELECT ON technomate.marks TO 'Student'@'localhost';
 FLUSH PRIVILEGES;
 
 --Attendance Related Function--
---All student Attendance, Subject by Subject without Medical
-SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'Attendance percentage'
-FROM Attendance 
-WHERE Attendance = 'Present'
-GROUP BY Course_code,Student_ID;
 
 --All studence Attendance above 80 present without Medical
 SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'Attendance percentage'
@@ -419,7 +414,7 @@ FROM Attendance
 WHERE Attendance = 'Present' OR Medical_Id IS NOT NULL
 GROUP BY Course_code,Student_ID;
 
-SELECT * FROM Practical_Attendance;
+SELECT * FROM AllAttendance;
 
 --All studence Attendance above 80 present with Medical
 SELECT Student_ID,Course_code,(COUNT( Attendance_ID))*100/15 as 'Attendance percentage'
@@ -427,13 +422,6 @@ FROM Attendance
 WHERE Attendance = 'Present' OR Medical_Id IS NOT NULL
 GROUP BY Student_ID,Course_code
 HAVING ((COUNT( Attendance_ID))*100/15)>=80;
-
---by giving the course code 
--- without medical
-SELECT Student_ID,COUNT( Attendance_ID)*100/15 AS 'percentage',IF((COUNT( Attendance_ID)*100/15)>80,"Eligible","Not eligible") AS 'Eligiblity'
-FROM attendance
-WHERE Course_code='ICT1212' AND Attendance='Present'
-GROUP BY Student_ID;
 
 -- CREATE PROCEDURE Function to view attendance by subject
 DELIMITER //
