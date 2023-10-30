@@ -1,5 +1,3 @@
---Create Table--
-
 CREATE TABLE User(
     NIC VARCHAR(15) PRIMARY KEY,
     First_name VARCHAR(20),
@@ -28,7 +26,6 @@ CREATE TABLE Student(
     NIC varchar(15),
     Type varchar(30),
     Department_ID CHAR(5));
-
 
 -- Insert sample data into the User table
 INSERT INTO User VALUES
@@ -102,29 +99,23 @@ INSERT INTO Dean(Dean_ID, NIC)VALUES('D1', '123456789P');
 
 -- Insert sample data into the Student table
 INSERT INTO Student (Student_ID, NIC, Type, Department_ID) VALUES
-    ('S1', '789012345L', 'Graduate', 'DP01'),
-    ('S2', '890123456M', 'Graduate', 'DP02'),
-    ('S3', '901234567N', 'Graduate', 'DP03'),
-    ('S4', '012345678O', 'Undergraduate', 'DP01'),
-    ('S5', '123456789P', 'Undergraduate','DP01'),
-    ('S6', '123456789Q', 'Undergraduate', 'DP02'),
-    ('S7', '234567890R', 'Undergraduate', 'DP03'),
-    ('S8', '345678901S', 'Undergraduate', 'DP01'),
-    ('S9', '456789012T', 'Undergraduate', 'DP02'),
-    ('S10', '567890123U', 'Undergraduate', 'DP03'),
-    ('S11', '678901234V', 'Undergraduate', 'DP01'),
-    ('S12', '789012345W', 'Undergraduate', 'DP02'),
-    ('S13', '345678901x', 'Undergraduate', 'DP01'),
-    ('S14', '456789012y', 'Undergraduate', 'DP02'),
-    ('S15', '567890123z', 'Undergraduate', 'DP03'),
-    ('S16', '345678901A', 'Undergraduate', 'D001'),
-    ('S17', '456789012B', 'Undergraduate', 'D001'),
-    ('S18', '567890123C', 'Undergraduate', 'D002'),
-    ('S19', '789012345E', 'Undergraduate', 'D003'),
-    ('S20', '890123456F', 'Undergraduate', 'D003');
-
---Add Foreign key
-ALTER TABLE User_Contact ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Admin ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Dean ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
-ALTER TABLE Student ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+    ('S1', '789012345L', 'Graduate', 'DP001'),
+    ('S2', '890123456M', 'Graduate', 'DP002'),
+    ('S3', '901234567N', 'Graduate', 'DP003'),
+    ('S4', '012345678O', 'Undergraduate', 'DP001'),
+    ('S5', '123456789P', 'Undergraduate','DP001'),
+    ('S6', '123456789Q', 'Undergraduate', 'DP002'),
+    ('S7', '234567890R', 'Undergraduate', 'DP003'),
+    ('S8', '345678901S', 'Undergraduate', 'DP001'),
+    ('S9', '456789012T', 'Undergraduate', 'DP002'),
+    ('S10', '567890123U', 'Undergraduate', 'DP003'),
+    ('S11', '678901234V', 'Undergraduate', 'DP001'),
+    ('S12', '789012345W', 'Undergraduate', 'DP002'),
+    ('S13', '345678901x', 'Undergraduate', 'DP001'),
+    ('S14', '456789012y', 'Undergraduate', 'DP002'),
+    ('S15', '567890123z', 'Undergraduate', 'DP003'),
+    ('S16', '345678901A', 'Undergraduate', 'DP001'),
+    ('S17', '456789012B', 'Undergraduate', 'DP001'),
+    ('S18', '567890123C', 'Undergraduate', 'DP002'),
+    ('S19', '789012345E', 'Undergraduate', 'DP003'),
+    ('S20', '890123456F', 'Undergraduate', 'DP003');
