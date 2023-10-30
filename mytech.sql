@@ -69,12 +69,12 @@ INSERT INTO Student_Notice VALUES
     ('L2','TCS1212');
 
 INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
-    ('L1', '234567890G', 'ICT_HED', 'DP01'),
-    ('L2', '345678901H', 'ET_HED', 'DP02'),
-    ('L3', '456789012I', 'BST_HED', 'DP03'),
-    ('L4', '567890123J', 'Lecturer', 'DP03'),
-    ('L5', '678901234K', 'Professor', 'DP01'),
-    ('L6', '789012345B', 'Lecture','DP2');
+    ('L1', '234567890G', 'ICT_HED', 'DP001'),
+    ('L2', '345678901H', 'ET_HED', 'DP002'),
+    ('L3', '456789012I', 'BST_HED', 'DP003'),
+    ('L4', '567890123J', 'Lecturer', 'DP003'),
+    ('L5', '678901234K', 'Professor', 'DP001'),
+    ('L6', '789012345B', 'Lecture','DP002');
 
 --Adding Foriegn keys
 ALTER TABLE Lecture_Student ADD FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID);
