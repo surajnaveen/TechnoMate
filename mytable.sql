@@ -3,26 +3,44 @@ student_id char(10),
 course_code varchar(10),
 status varchar(10));
 
+
+CREATE TABLE Tech_officer(
+    Teach_officer_ID VARCHAR(5) PRIMARY KEY,
+    NIC varchar(15),
+    Role varchar(50));
+
+
+CREATE TABLE Department (
+    Department_ID char(5),
+    Name varchar(50) NOT NULL,
+    Admin_Id varchar(5),
+    Dean_ID varchar(5),
+    PRIMARY KEY(Department_ID);
+);
+
+CREATE TABLE mark(
+    mark_ID char(10) PRIMARY KEY,
+    Student_ID char(10),
+    Course_ID char(10),
+    Mid_Theory float(3,2),
+    Mid_practical float(3,2),
+    Final_Theory float(3,2),
+    Final_practical float(3,2)
+    Quiz_1 float(3,2),
+    Quiz_2 float(3,2),
+    Quiz_3 float(3,2),
+    Asgm_1 float(3,2),
+    Asgm_2 float(3,2),
+    Asgm_3 float(3,2),
+    CA float(3,2)
+);
+
+--FORIEGN KEY
 Alter table student_course ADD FOREIGN KEY(student_id) REFERENCES Student(Student_ID);
 Alter table student_course ADD FOREIGN KEY(course_code) REFERENCES Course(Course_code);
-
-
-CREATE TABLE student_attendance(
-student_id char(10),
-attendance_id varchar(15));
-Alter table student_attendance ADD FOREIGN KEY(student_id) REFERENCES Student(Student_ID);
-Alter table student_attendance ADD FOREIGN KEY(attendance_id) REFERENCES Attendance(Attendance_ID);
-
-
-CREATE TABLE marks_course(
-marks_id char(10),
-course_code varchar(10));
-Alter table mraks_course ADD FOREIGN KEY(marks_id) REFERENCES Marks(Marks_ID);
-Alter table marks_course ADD FOREIGN KEY(course_code) REFERENCES Course(Course_ID);
-
-CREATE TABLE attendance_course(
-course_code char(10),
-attendance_code varchar(15));
+ALTER TABLE Department ADD FOREIGN KEY(Dean_ID) REFERENCES Dean(Dean_ID);
+ALTER TABLE Department ADD FOREIGN KEY(Admin_Id) REFERENCES Admin(Admin_Id);
+ALTER TABLE Tech_officer ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 
 --insert data
 
@@ -65,7 +83,6 @@ INSERT INTO student_course(Student_ID,course_code,status)VALUES
 ('S7','BST2343','No'),
 ('S7','BST2331','No'),
 
-
 ('S8','ICT1122','No'),
 ('S8','ICT1212','No'),
 ('S8','ICT1253','No'),
@@ -81,7 +98,6 @@ INSERT INTO student_course(Student_ID,course_code,status)VALUES
 ('S10','BST3021','No'),
 ('S10','BST2343','No'),
 ('S10','BST2331','No'),  
-
 
 ('S11','ICT1122','Repeat'),
 ('S11','ICT1212','No'),
@@ -105,148 +121,39 @@ INSERT INTO student_course(Student_ID,course_code,status)VALUES
 ('S14','TMS2022','No'),
 ('S14','TMS2022','No'),
 
-
 ('S15','BST4024','No'),
 ('S15','BST3021','No'),
 ('S15','BST2343','No'),
 ('S15','BST2331','No');
  
   
-INSERT INTO Student_attendance(Student_ID,attendance_id)
+INSERT INTO Tech_officer (Teofficer_ID, NIC, Role)VALUES
+    ('T2', '890123456C', 'Tech Officer'),
+    ('T3', '901234567D', 'Tech Officer'),
+    ('T4', '012345678E', 'Tech Officer'),
+    ('T5', '901234567G', 'Tech Officer'),
+    ('T6', '012345678H', 'Tech Officer');
+
+
+INSERT INTO Department (Department_ID, Name,Admin_Id, Dean_ID)
 VALUES
-('S4','ATTIT002'),
-('S5','ATTIT003'),
-('S8','ATTIT004'),
-('S11','ATTIT005'),
-('S13','ATTIT006'),
+    ('DP001', 'Information and Communication Technology','A1', 'D1'),
+    ('DP002', 'Engineering Technology','A1', 'D1'),
+    ('DP003', 'Bio Systems Technology','A1', 'D1');
 
-('S4','ATTIT008'),
-('S5','ATTIT009'),
-('S8','ATTIT0010'),
-('S11','ATTIT0011'),
-('S13','ATTIT0012'),
-
-('S7','ATTIT001'),
-('S10','ATTIT002'),
-('S15','ATTIT003'),
-('S7','ATTIT004'),
-('S10','ATTIT005'),
-('S15','ATTIT006'),
-
-('S6','ATTIT008'),
-('S9','ATTIT009'),
-('S12','ATTIT0010'),
-('S14','ATTIT0011'),
-
-
-('S4','ATTIT0013'),
-('S5','ATTIT0014'),
-('S8','ATTIT0015'),
-('S11','ATTIT0016'),
-('S13','ATTIT0017'),
-
-('S7','ATTIT007'),
-('S10','ATTIT008'),
-('S15','ATTIT009'),
-('S17','ATTIT0010'),
-('S10','ATTIT0011'),
-('S15','ATTIT0012'),
-
-('S3','ATTIT007'),
-('S4','ATTIT008'),
-('S5','ATTIT009'),
-('S6','ATTIT0010'),
-('S7','ATTIT0011');
-
-
-INSERT INTO marks_course (marks_id,course_code)
+INSERT INTO Mark(Marks_ID,Student_ID,Course_ID,Mid_Theory,Mid_practical,Final_Theory,Final_practical,
+    Quiz_1,Quiz_2,Quiz_3,Asgm_1,Asgm_2,Asgm_3)
 VALUES
-    ('MKS01','ICT1233'),
-    ('MKS02','ICT1253'),
-    ('MKS03','ICT1212'),
-    ('MKS04','ICT1213'),
-    ('MKS19','ICT1242'),
-
-    ('MKS04','ICT1233'),
-    ('MKS05','ICT1253'),
-    ('MKS06','ICT1212'),
-    ('MKS07','ICT1213'),
-    ('MKS18','ICT1242'),
-
-    ('MKS08','ICT1233'),
-    ('MKS09','ICT1253'),
-    ('MKS10','ICT1212'),
-    ('MKS11','ICT1242'),
-
-    ('MKS12','ICT1233'),
-    ('MKS13','ICT1253'),
-    ('MKS14','ICT1212'),
-    ('MKS14','ICT1213'),
-    ('MKS17','ICT1242'),
-
-    ('MKS14','ICT1233'),
-    ('MKS15','ICT1253'),
-    ('MKS16','ICT1212'),
-    ('MKS17','ICT1213'),
-    ('MKS18','ICT1242');
-
-INSERT INTO attendance_course(course_code,attendance_code)
-VALUES
-('ICT1212','ATTIT002'),
-    ('ICT1212','ATTIT003'),
-    ('ICT1212','ATTIT004'),
-    ('ICT1212','ATTIT005'),
-    ('ICT1212','ATTIT006'),
-
-    ('ICT1212','ATTIT008'),
-    ('ICT1212','ATTIT009'),
-    ('ICT1212','ATTIT010'),
-    ('ICT1212','ATTIT011'),
-    ('ICT1212','ATTIT012'),
-
-    ('BST4024','ATTBT001'),
-    ('BST4024','ATTBT002'),
-    ('BST4024','ATTBT003'),
-
-    ('BST2343','ATTBT004'),
-    ('BST2343','ATTBT005'),
-    ('BST2343','ATTBT006'),
-
-    ('TMS2022','ATTET003'),
-    ('TMS2022','ATTET004'),
-    ('TMS2022','ATTET005'),
-    ('TMS2022','ATTET006'),
-
-    ('TMS6302','ATTET008'),
-    ('TMS6302','ATTET009'),
-    ('TMS6302','ATTET010'),
-    ('TMS6302','ATTET011'),
-
-    ('ICT1253','ATTIT013'),
-    ('ICT1253','ATTIT014'),
-    ('ICT1253','ATTIT015'),
-    ('ICT1253','ATTIT016'),
-    ('ATTIT017', 'ICT1253'),
-
-    ('ICT1242','ATTIT013'),
-    ('ICT1242','ATTIT014'),
-    ('ICT1242','ATTIT015'),
-    ('ICT1242','ATTIT016'),
-    ('ICT1242','ATTIT017'),
-
-    ('BST4024','ATTBT007'),
-    ('BST4024','ATTBT008'),
-    ('BST4024','ATTBT009'),
-    ('BST2343','ATTBT0010'),
-    ('BST2343','ATTBT0011'),
-    ('BST2343','ATTBT0012'),
-
-    ('ICT1242','ATTET007'),
-    ('ICT1242','ATTET008'),
-    ('ICT1242','ATTET009'),
-    ('ICT1242','ATTET010'),
-    ('ICT1242','ATTET011');
-
-
-INSERT INTO marks_assignment (marks_id,assignment_code)
-VALUES
+    ("MICT1","S4","",88,80,75,65,89,91,78,68,95,84),
+    ("MICT1","S4","",97,80,75,65,88,91,78,88,95,84),
+    ("MICT1","S4","",97,80,75,65,50,91,78,68,88,84),
+    ("MICT1","S4","",97,80,75,65,89,91,78,68,95,88),
+    ("MICT1","S4","",88,80,50,65,89,91,50,68,95,84),
+    ("MICT1","S4","",97,80,75,88,89,91,78,68,95,84),
+    ("MICT1","S4","",97,80,75,80,88,91,78,68,95,84),
+    ("MICT1","S4","",97,88,75,65,89,91,78,68,95,84),
+    ("MICT1","S4","",97,80,75,65,89,91,78,88,88,84),
+    ("MICT1","S4","",97,80,45,65,80,50,78,68,95,84),
+    ("MICT1","S4","",88,80,75,65,89,91,80,68,95,84),
+    ("MICT1","S4","",97,80,75,65,88,91,78,88,95,84),
+    ("MICT1","S4","",97,80,75,65,89,91,78,68,95,84),

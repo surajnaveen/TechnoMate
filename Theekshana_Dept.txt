@@ -1,0 +1,18 @@
+
+CREATE TABLE Department (
+    Department_ID char(5),
+    Name varchar(50) NOT NULL,
+    Admin_Id varchar(5),
+    Dean_ID varchar(5),
+    PRIMARY KEY(Department_ID);
+);
+
+-- Insert sample data into the Department table
+INSERT INTO Department (Department_ID, Name,Admin_Id, Dean_ID)
+VALUES
+    ('DP001', 'Information and Communication Technology','A1', 'D1'),
+    ('DP002', 'Engineering Technology','A1', 'D1'),
+    ('DP003', 'Bio Systems Technology','A1', 'D1');
+
+ALTER TABLE Department ADD FOREIGN KEY(Dean_ID) REFERENCES Dean(Dean_ID);
+ALTER TABLE Department ADD FOREIGN KEY(Admin_Id) REFERENCES Admin(Admin_Id);
