@@ -1,3 +1,9 @@
+--Creating Database
+CREATE Technomate;
+
+--Use database
+USE Technomate;
+
 --Create Tables
 
 CREATE TABLE Course (
