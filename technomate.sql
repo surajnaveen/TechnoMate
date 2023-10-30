@@ -13,8 +13,7 @@ CREATE TABLE Course (
 CREATE TABLE Attendance (
     Attendance_ID char(10),
     Date DATE,
-    Theory varchar(10),
-    Practical varchar(10),
+    Attendance varchar(10),
     Course_code char(7),
     Student_ID varchar(5),
     Medical_Id char(5),
@@ -46,11 +45,12 @@ INSERT INTO Course (Course_code, Name, Credit, Course_hours, Course_type, Depart
 VALUES
     ('ICT1233', 'Server Side Web Development', 3, 45, 'GPA', 'DP001'),
     ('ICT1213', 'Descrete Mathamatics', 4, 60, 'GPA', 'DP001'),
-    ('ICT1253T', 'Computer Networkig Theory', 3, 45, 'GPA', 'DP001'),
-    ('ICT1253P', 'Computer Networkig Practical', 3, 45, 'GPA', 'DP001'),
+    ('ICT1253T', 'Computer Networkig Theory', 2, 45, 'GPA', 'DP001'),
+    ('ICT1253P', 'Computer Networkig Practical', 1, 45, 'GPA', 'DP001'),
     ('ICT1212', 'DBMS', 3, 45, 'GPA', 'DP001'),
     ('ICT1222', 'DBMS practicum', 3, 45, 'GPA', 'DP001'),
     ('ICT1242', 'Computer Architecher', 3, 45, 'GPA', 'DP001'),
+    ('ENG1212', 'English', 2, 45, 'Non GPA', 'DP001'),
     
     ('TMS2022', 'Physics', 4, 60, 'GPA', 'DP003'),
     ('TMS4302', 'Calculus', 3, 45, 'GPA', 'DP003'),
@@ -244,18 +244,108 @@ VALUES
     ('ATTIT0144', '2023-03-24','present' , 'ICT1222', 'S5', NULL,'T6'),
     ('ATTIT0146', '2023-03-24','present' , 'ICT1222', 'S8', NULL,'T6'),
     ('ATTIT0148', '2023-03-24','present' ,'ICT1222', 'S11', NULL,'T6'),
-    ('ATTIT0149', '2023-03-24','Absant' , 'ICT1222', 'S13', NULL,'T6');
+    ('ATTIT0149', '2023-03-24','Absant' , 'ICT1222', 'S13', NULL,'T6'),
+
+    ('ATTIT0170', '2023-03-10', 'present', 'ENG1212', 'S4', NULL,'T4'),
+    ('ATTIT0171', '2023-03-10', 'present', 'ENG1212', 'S5', NULL,'T4'),
+    ('ATTIT0174', '2023-03-10', 'present', 'ENG1212', 'S8', NULL,'T4'),
+    ('ATTIT0175', '2023-03-10', 'present', 'ENG1212', 'S11', NULL,'T4'),
+    ('ATTIT0176', '2023-03-10', 'present', 'ENG1212', 'S13', NULL,'T4'),
+
+    ('ATTIT0177', '2023-03-11', 'present', 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT0178', '2023-03-11', 'present', 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT0179', '2023-03-11', 'present', 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT0180', '2023-03-11', 'Absant', 'ENG1212', 'S11', 'M1003','T6'),
+    ('ATTIT0181', '2023-03-11', 'present', 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0182', '2023-03-12', 'Absant', 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1155', '2023-03-12', 'present', 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT0183', '2023-03-12', 'present', 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT0184', '2023-03-12', 'Absant', 'ENG1212', 'S11', 'M1003','T6'),
+    ('ATTIT0186', '2023-03-12', 'present', 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0187', '2023-03-13', 'present', 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT0188', '2023-03-13', 'Absant', 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT0189', '2023-03-13', 'present', 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT0190', '2023-03-13', 'Absant', 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT0191', '2023-03-13', 'present', 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0192', '2023-03-14', 'present', 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT0193', '2023-03-14', 'present', 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT0194', '2023-03-14', 'Absant', 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT0195', '2023-03-14', 'present', 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT0196', '2023-03-14', 'present', 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT0197', '2023-03-15','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT0198', '2023-03-15','Absant' ,'ENG1212', 'S5', 'M1006','T6'),
+    ('ATTIT0199', '2023-03-15','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1100', '2023-03-15','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1101', '2023-03-15','present' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1102', '2023-03-16','Absant' ,'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1103', '2023-03-16','Absant' , 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1104', '2023-03-16','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1105', '2023-03-16','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1106', '2023-03-16','Absant' , 'ENG1212', 'S13', 'M1005','T6'),
+
+    ('ATTIT1107', '2023-03-17','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1108', '2023-03-17','Absant' , 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1109', '2023-03-17','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1110', '2023-03-17','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1111', '2023-03-17','present' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1112', '2023-03-18','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1113', '2023-03-18','present' , 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1114', '2023-03-18','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1115', '2023-03-18','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1116', '2023-03-18','present' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1117', '2023-03-19','Absant' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1118', '2023-03-19','Absant' , 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1119', '2023-03-19','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1120', '2023-03-19','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1121', '2023-03-19','Absant' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1122', '2023-03-20','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1123', '2023-03-20','Absant' ,'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1124', '2023-03-20','Absant' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1125', '2023-03-20','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1126', '2023-03-20','Absant' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1127', '2023-03-21','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1128', '2023-03-21','Absant' , 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1129', '2023-03-21','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1130', '2023-03-21','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1131', '2023-03-21','Absant' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1132', '2023-03-22','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1133', '2023-03-22','present' ,'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1134', '2023-03-22','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1135', '2023-03-22','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1136', '2023-03-22','present' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1137', '2023-03-23','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1138', '2023-03-23','Absant' ,'ENG1212', 'S5', 'M1007','T6'),
+    ('ATTIT1139', '2023-03-23','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1140', '2023-03-23','present' , 'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1141', '2023-03-23','present' , 'ENG1212', 'S13', NULL,'T6'),
+
+    ('ATTIT1142', '2023-03-24','present' , 'ENG1212', 'S4', NULL,'T6'),
+    ('ATTIT1144', '2023-03-24','present' , 'ENG1212', 'S5', NULL,'T6'),
+    ('ATTIT1146', '2023-03-24','present' , 'ENG1212', 'S8', NULL,'T6'),
+    ('ATTIT1148', '2023-03-24','present' ,'ENG1212', 'S11', NULL,'T6'),
+    ('ATTIT1149', '2023-03-24','Absant' , 'ENG1212', 'S13', NULL,'T6');
 
 -- Insert sample data into the Notice table
 INSERT INTO Notice (Notice_ID,lecture_ID, Date, description)
 VALUES
-    ('N5001','L1' '2023-03-01', 'Class cancellation on March 5th due to holiday.'),
-    ('N5002','L2' '2023-03-10', 'Faculty meeting on March 15th at 3:00 PM.'),
-    ('N5003','L2' '2023-04-05', 'Upcoming midterm exams schedule.'),
-    ('N5004','L2' '2023-04-15', 'Library closure on April 20th for maintenance'),
-    ('N5005','L4' '2023-04-25', 'Guest lecture on May 1st in the auditorium'),
-    ('N5006','L4' '2023-05-05', 'Final exam schedule for the current semester'),
-    ('N5007','L5' '2023-05-15', 'Graduation ceremony details for this year');
+    ('N5001','L1', '2023-03-01', 'Class cancellation on March 5th due to holiday.'),
+    ('N5002','L2', '2023-03-10', 'Faculty meeting on March 15th at 3:00 PM.'),
+    ('N5003','L2', '2023-04-05', 'Upcoming midterm exams schedule.'),
+    ('N5004','L2', '2023-04-15', 'Library closure on April 20th for maintenance'),
+    ('N5005','L4', '2023-04-25', 'Guest lecture on May 1st in the auditorium'),
+    ('N5006','L4', '2023-05-05', 'Final exam schedule for the current semester'),
+    ('N5007','L5', '2023-05-15', 'Graduation ceremony details for this year');
 
 -- Insert sample data into the Medical table
 INSERT INTO Medical (Medical_Id,Student_ID, Tech_officer_ID, Start_Date, End_Date)
@@ -323,7 +413,7 @@ HAVING ((COUNT( Attendance_ID))*100/15)>=80;
 
 --All student Attendance, Subject by Subject with Medical
 --view table
-CREATE OR REPLACE VIEW Attendance AS
+CREATE OR REPLACE VIEW AllAttendance AS
 SELECT Student_ID,Course_code,COUNT( Attendance_ID)*100/15 as 'Attendance percentage'
 FROM Attendance 
 WHERE Attendance = 'Present' OR Medical_Id IS NOT NULL
