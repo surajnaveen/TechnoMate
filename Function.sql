@@ -11,6 +11,8 @@ SELECT student_id,Final_exam
 from marks
 WHERE course_code ='ICT1212';
 
+SELECT concat(First_name,' ',Last_name)AS name, YEAR(CURRENT_DATE) - YEAR(dod) - (RIGHT(CURRENT_DATE, 5) < RIGHT(dod, 5)) AS age
+FROM user;
 
 
 --By giving course code
