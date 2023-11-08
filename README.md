@@ -36,7 +36,7 @@ In this project, we are developing a comprehensive system that connects LMS and 
 
 ## After completing the Database,
 - **ER Diagram**
-![Alt Text](ERdiagram_TechnoMate/ERdiagramFinal.png)
+![Alt Text](ERdiagram_TechnoMate/ERFinal.png)
 
 - **Relational Mapping**
 ![Alt Text](ERdiagram_TechnoMate/RelationalMappingFinal.png)
