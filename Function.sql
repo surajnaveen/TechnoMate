@@ -1,8 +1,14 @@
+SELECT Marks_Id, Student_ID, Mid_exam, Final_exam
+FROM Marks
+WHERE Student_ID = 'S4';
+
+UPDATE Marks
+SET Mid_exam = 95, Final_exam = 92
+WHERE Student_ID = 'S12';
+
+
 SELECT Department_ID,Name
 from Department;
-
-SELECT student_id,Attendance_ID
-from * from student_attendance;
 
 SELECT Mid_exam,Final_exam
 from Marks;
@@ -10,6 +16,11 @@ from Marks;
 SELECT student_id,Final_exam
 from marks
 WHERE course_code ='ICT1212';
+
+UPDATE student_course
+SET status = 'Completed'
+WHERE student_id = 'S12' AND course_code = 'ICT1122';
+
 
 SELECT concat(First_name,' ',Last_name)AS name, 
 YEAR(CURRENT_DATE) - YEAR(dob) - (RIGHT(CURRENT_DATE, 5) < RIGHT(dob, 5)) AS age
