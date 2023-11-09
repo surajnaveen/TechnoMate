@@ -1,4 +1,3 @@
---Create tables
 CREATE TABLE Lecture_Student (Student_ID CHAR(5),Lecture_ID CHAR(5));
 CREATE TABLE Student_Notice (Student_ID CHAR(5),Notice_ID CHAR(5));
 CREATE TABLE Lecture_Course (Lecture_ID CHAR(5),Course_ID CHAR(10));
@@ -8,7 +7,8 @@ CREATE TABLE Lecture(
     Position varchar(50),
     Department_ID CHAR(5));
 
---Data inserting to Lecture_Student
+
+--Data inserting
 INSERT INTO Lecture_Student VALUES
     ('S1','L1'),
     ('S1','L5'),
@@ -32,7 +32,7 @@ INSERT INTO Lecture_Student VALUES
     ('S14','L2'),
     ('S15','L3');
 
---Data inserting to Student_Notice
+
 INSERT INTO Student_Notice VALUES 
     ('S1','N5003'),
     ('S1','N5001'),
@@ -49,26 +49,6 @@ INSERT INTO Student_Notice VALUES
     ('S9','N5002'),
     ('S9','N5006');
 
---Data inserting to Lecture_Cource
-    INSERT INTO Lecture_Cource VALUES
-    ('L1','ICT1122'),
-    ('L1','ICT1212'),
-    ('L5','ICT1253'),
-    ('L5','ICT1212'),
-    ('L1','ICT1242'),
-    ('L2','TMS2022'),
-    ('L2','TMS4302'),
-    ('L2','TMS6302'),
-    ('L2','TMS6302'),
-    ('L2','TMS7302'),
-    ('L3','BST4024'),
-    ('L3','BST3021'),
-    ('L3','BST2343'),
-    ('L3','BST2331'),
-    ('L4','ENG1212'),
-    ('L2','TCS1212');
-
---Data inserting to Lecture
 INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
     ('L1', '234567890G', 'ICT_HED', 'DP001'),
     ('L2', '345678901H', 'ET_HED', 'DP002'),
@@ -77,23 +57,70 @@ INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
     ('L5', '678901234K', 'Professor', 'DP001'),
     ('L6', '789012345B', 'Lecture','DP002');
 
---Adding Foriegn keys
+INSERT INTO Lecture_Course VALUES
+    ('L1','ICT1222'),
+    ('L1','ICT1212'),
+    ('L5','ICT1233'),
+    ('L5','ICT1212'),
+    ('L1','ICT1242'),
+    ('L2','TMS2022'),
+    ('L2','TMS4302'),
+    ('L2','TMS6302'),
+    ('L2','ICT1253T'),
+    ('L2','TMS7302'),
+    ('L3','BST4024'),
+    ('L3','BST3021'),
+    ('L3','BST2343'),
+    ('L3','BST2331'),
+    ('L4','ENG1212'),
+    ('L2','TCS1212');
+
+INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
+    ('L1', '234567890G', 'ICT_HED', 'DP001'),
+    ('L2', '345678901H', 'ET_HED', 'DP002'),
+    ('L3', '456789012I', 'BST_HED', 'DP003'),
+    ('L4', '567890123J', 'Lecturer', 'DP003'),
+    ('L5', '678901234K', 'Professor', 'DP001'),
+    ('L6', '789012345B', 'Lecture','DP002');
+
 ALTER TABLE Lecture_Student ADD FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID);
 ALTER TABLE Lecture_Student ADD FOREIGN KEY (Lecture_ID) REFERENCES Lecture(Lecture_ID);
 ALTER TABLE Student_Notice ADD FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID);
 ALTER TABLE Student_Notice ADD FOREIGN KEY (Notice_ID) REFERENCES Notice(Notice_ID);
 ALTER TABLE Lecture_Course ADD FOREIGN KEY (Lecture_ID) REFERENCES Lecture(Lecture_ID);
-ALTER TABLE Lecture_Course ADD FOREIGN KEY (Course_code) REFERENCES Course_code(Course_code);
+--ALTER TABLE Lecture_Course ADD FOREIGN KEY (Course_ID) REFERENCES Course(Course_code);
 ALTER TABLE Lecture ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+ALTER TABLE Lecture ADD FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID);
+
+--By giving course code
+DELIMITER //
+CREATE PROCEDURE Give_Course_code_CA(Course_cod VARCHAR(10))
+BEGIN
+SELECT Marks_ID,Student_ID,CA_Mark FROM CA_Result 
+WHERE CA_Result.Course_code = Course_cod AND Withot_Attendance_Eligibility='Eligible';
+END //
+DELIMITER ;
+CALL Give_Course_code_CA('ICT1212');
+
+--By giving course code and registration no
+DELIMITER //
+CREATE PROCEDURE course_register_no(Course_cod VARCHAR(10),reg_number VARCHAR(5))
+BEGIN
+SELECT Marks_ID,Student_ID,CA_Mark FROM CA_Result 
+WHERE Course_code = Course_cod AND 
+Withot_Attendance_Eligibility='Eligible' AND Student_ID=reg_number;
+END //
+DELIMITER ;
+CALL course_register_no('ICT1212','s4');
 
 --view users details
-SELECT CONCAT(User.First_name,' ',User.Last_name),Tech_officer.Tech_officer_ID,User.NIC
+SELECT CONCAT(User.First_name,' ',User.Last_name),Tech_officer.Teach_officer_ID,User.NIC
 FROM Tech_officer,User
-WHERE tech_officer.NIC=User.NIC;
+WHERE Tech_officer.NIC=User.NIC;
 
-SELECT CONCAT(User.First_name,' ',User.Last_name),lecturer.Lecturer_ID,User.NIC
+SELECT CONCAT(User.First_name,' ',User.Last_name),Lecture.Lecture_ID,User.NIC
 FROM Lecture,User
-WHERE Lecturer.NIC=User.NIC;
+WHERE Lecture.NIC=User.NIC;
 
 SELECT CONCAT(User.First_name,' ',User.Last_name),Student.Student_ID,User.NIC
 FROM Student,User
@@ -147,11 +174,3 @@ GROUP BY Student_ID;
 SELECT student.Student_ID, medical.End_Date - medical.Start_Date AS 'Medical Date Count'
 FROM medical,student
 WHERE student.Student_ID=medical.Student_ID;
-
-SELECT Student_ID , Status
-FROM Student_Course
-WHERE Status = "Reapet";
-
-SELECT Student_ID , (Start_date - End_date)
-FROM medical;
-
