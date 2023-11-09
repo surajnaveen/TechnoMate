@@ -1,4 +1,4 @@
-REATE TABLE Marks (
+CREATE TABLE Marks (
     Marks_Id char(10) PRIMARY KEY,
     Student_ID varchar(5),
     Course_code char(10),
