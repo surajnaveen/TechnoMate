@@ -31,15 +31,6 @@ CREATE TABLE Tech_officer(
     Role varchar(50));
 
 
-CREATE TABLE Lecture_Student (Student_ID CHAR(5),Lecture_ID CHAR(5));
-CREATE TABLE Student_Notice (Student_ID CHAR(5),Notice_ID CHAR(5));
-CREATE TABLE Lecture_Course (Lecture_ID CHAR(5),Course_ID CHAR(10));
-CREATE TABLE Lecture(
-    Lecture_ID VARCHAR(5) PRIMARY KEY,
-    NIC varchar(15),
-    Position varchar(50),
-    Department_ID CHAR(5));
-
 Alter table student_course ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
 --Alter table student_course ADD FOREIGN KEY(course_code) REFERENCES Course(Course_code);
 Alter table Marks ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
