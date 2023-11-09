@@ -50,7 +50,7 @@ CREATE TABLE User(
     Address VARCHAR(50),
     Email VARCHAR(30),
     Gender CHAR(6),
-    Dod DATE);
+    Dob DATE);
 
 CREATE TABLE User_Contact(
     NIC VARCHAR(15) PRIMARY KEY,
@@ -89,24 +89,9 @@ CREATE TABLE Marks (
 
 
 CREATE TABLE student_course(
-student_id char(10),
-course_code varchar(10),
-status varchar(10));
-
-CREATE TABLE student_attendance(
-student_id char(10),
-attendance_id varchar(15));
-
-
-CREATE TABLE marks_course(
-marks_id char(10),
-course_code varchar(10));
-
-
-CREATE TABLE attendance_course(
-course_code char(10),
-attendance_code varchar(15));
-
+    student_id char(10),
+    course_code varchar(10),
+    status varchar(10));
 
 CREATE TABLE Department (
     Department_ID char(5),
@@ -114,12 +99,6 @@ CREATE TABLE Department (
     Admin_Id varchar(5),
     Dean_ID varchar(5),
     PRIMARY KEY(Department_ID));
-
-CREATE TABLE student_course(
-student_id char(10),
-course_code varchar(10),
-status varchar(10));
-
 
 CREATE TABLE Tech_officer(
     Teach_officer_ID VARCHAR(5) PRIMARY KEY,
@@ -153,11 +132,11 @@ VALUES
     ('ICT1242', 'Computer Architecher', 3, 45, 'GPA', 'DP001'),
     ('ENG1212', 'English', 2, 45, 'Non GPA', 'DP001'),
     
-    ('TMS2022', 'Physics', 4, 60, 'GPA', 'DP003'),
-    ('TMS4302', 'Calculus', 3, 45, 'GPA', 'DP003'),
-    ('TMS6301', 'Wrokshop', 3, 45, 'GPA', 'DP003'),
-    ('TMS6302', 'Electricity and Magnatisam', 3, 45, 'GPA', 'DP003'),
-    ('TMS7302', 'Properties Of Matters', 3, 45, 'GPA', 'DP003'),
+    ('TMS2022', 'Physics', 4, 60, 'GPA', 'DP002'),
+    ('TMS4302', 'Calculus', 3, 45, 'GPA', 'DP002'),
+    ('TMS6301', 'Wrokshop', 3, 45, 'GPA', 'DP002'),
+    ('TMS6302', 'Electricity and Magnatisam', 3, 45, 'GPA', 'DP002'),
+    ('TMS7302', 'Properties Of Matters', 3, 45, 'GPA', 'DP002'),
 
     ('BST4024', 'Fisheries', 3, 45, 'GPA', 'DP003'),
     ('BST3021', 'Micro Biology', 3, 45, 'GPA', 'DP003'),
@@ -449,7 +428,7 @@ VALUES
     ('N5007','L5', '2023-05-15', 'Graduation ceremony details for this year');
 
 -- Insert sample data into the Medical table
-INSERT INTO Medical (Medical_Id,Student_ID, Tech_officer_ID, Start_Date, End_Date)
+INSERT INTO Medical(Medical_Id,Student_ID, Tech_officer_ID, Start_Date, End_Date)
 VALUES
     ('M1001','s15','T1', '2023-03-10', '2023-03-12'),
     ('M1002','s09','T2', '2023-03-10', '2023-03-11'),
@@ -537,7 +516,7 @@ INSERT INTO Student (Student_ID, NIC, Type, Department_ID) VALUES
     ('S3', '901234567N', 'Graduate', 'DP003'),
     ('S4', '012345678O', 'Undergraduate', 'DP001'),
     ('S5', '123456789P', 'Undergraduate','DP001'),
-    ('S6', '123456789Q', 'Undergraduate', 'DP002'),
+    ('S6', '234567890Q', 'Undergraduate', 'DP002'),
     ('S7', '234567890R', 'Undergraduate', 'DP003'),
     ('S8', '345678901S', 'Undergraduate', 'DP001'),
     ('S9', '456789012T', 'Undergraduate', 'DP002'),
@@ -552,192 +531,78 @@ INSERT INTO Student (Student_ID, NIC, Type, Department_ID) VALUES
     ('S18', '567890123C', 'Undergraduate', 'DP002'),
     ('S19', '789012345E', 'Undergraduate', 'DP003'),
     ('S20', '890123456F', 'Undergraduate', 'DP003');
-
+    
+    
 
 
 INSERT INTO student_course(Student_ID,course_code,status)VALUES
-('S1','ICT1122','NO'),
-('S1','ICT1212','No'),
-('S1','ICT1253','No'),
-('S1','ICT1242','No'),
-('S2','TMS2022','No'),
-('S2','TMS4302','No'),
-('S2','TMS6302','No'),
-('S2','TMS2022','No'),
-('S2','TMS2022','No'),
-('S3','BST4024','No'),
-('S3','BST3021','No'),
-('S3','BST2343','No'),
-('S3','BST2331','No'),
-('S4','ICT1122','No'),
-('S4','ICT1212','No'),
-('S4','ICT1253','No'),
-('S4','ICT1242','No'),
-('S5','ICT1122','No'),
-('S5','ICT1212','No'),
-('S5','ICT1253','NO'),
-('S5','ICT1242','No'),
-('S6','TMS2022','No'),
-('S6','TMS4302','No'),
-('S6','TMS6302','No'),
-('S6','TMS2022','Repeat'),
-('S6','TMS2022','No'),
-('S7','BST4024','No'),
-('S7','BST3021','No'),
-('S7','BST2343','No'),
-('S7','BST2331','Repeat'),
-('S8','ICT1122','No'),
-('S8','ICT1212','No'),
-('S8','ICT1253','No'),
-('S8','ICT1242','No'),
-('S9','TMS2022','No'),
-('S9','TMS4302','No'),
-('S9','TMS6302','No'),
-('S9','TMS2022','No'),
-('S9','TMS2022','No'),
-('S10','BST4024','No'),
-('S10','BST3021','Repeat'),
-('S10','BST2343','No'),
-('S10','BST2331','No'),  
-('S11','ICT1122','NO'),
-('S11','ICT1212','No'),
-('S11','ICT1253','No'),
-('S11','ICT1242','No'),
-('S12','TMS2022','No'),
-('S12','TMS4302','No'),
-('S12','TMS6302','No'),
-('S12','TMS2022','No'),
-('S12','TMS2022','No'),
-('S13','ICT1122','No'),
-('S13','ICT1212','No'),
-('S13','ICT1253','No'),
-('S13','ICT1242','No'),
-('S14','TMS2022','Repeat'),
-('S14','TMS4302','No'),
-('S14','TMS6302','No'),
-('S14','TMS2022','No'),
-('S14','TMS2022','No'),
-('S15','BST4024','Repeat'),
-('S15','BST3021','No'),
-('S15','BST2343','No'),
-('S15','BST2331','No');
+    ('S1','ENG1212','NO'),
+    ('S1','ICT1212','No'),
+    ('S1','ICT1253T','No'),
+    ('S1','ICT1242','No'),
+    ('S2','TMS2022','No'),
+    ('S2','TMS4302','No'),
+    ('S2','TMS6302','No'),
+    ('S2','TMS2022','No'),
+    ('S2','TMS2022','No'),
+    ('S3','BST4024','No'),
+    ('S3','BST3021','No'),
+    ('S3','BST2343','No'),
+    ('S3','BST2331','No'),
+    ('S4','ENG1212','No'),
+    ('S4','ICT1212','No'),
+    ('S4','ICT1253T','No'),
+    ('S4','ICT1253P','No'),
+    ('S4','ICT1242','No'),
+    ('S5','ENG1212','No'),
+    ('S5','ICT1212','No'),
+    ('S5','ICT1253P','NO'),
+    ('S5','ICT1242','No'),
+    ('S6','TMS2022','No'),
+    ('S6','TMS4302','No'),
+    ('S6','TMS6302','No'),
+    ('S6','TMS2022','Repeat'),
+    ('S6','TMS2022','No'),
+    ('S7','BST4024','No'),
+    ('S7','BST3021','No'),
+    ('S7','BST2343','No'),
+    ('S7','BST2331','Repeat'),
+    ('S8','ENG1212','No'),
+    ('S8','ICT1212','No'),
+    ('S8','ICT1253P','No'),
+    ('S8','ICT1242','No'),
+    ('S9','TMS2022','No'),
+    ('S9','TMS4302','No'),
+    ('S9','TMS6302','No'),
+    ('S9','TMS2022','No'),
+    ('S9','TMS2022','No'),
+    ('S10','BST4024','No'),
+    ('S10','BST3021','Repeat'),
+    ('S10','BST2343','No'),
+    ('S10','BST2331','No'),  
+    ('S11','ENG1212','NO'),
+    ('S11','ICT1212','No'),
+    ('S11','ICT1253T','No'),
+    ('S11','ICT1242','No'),
+    ('S12','TMS2022','No'),
+    ('S12','TMS4302','No'),
+    ('S12','TMS6302','No'),
+    ('S12','TMS2022','No'),
+    ('S12','TMS2022','No'),
+    ('S13','ENG1212','No'),
+    ('S13','ICT1212','No'),
+    ('S13','ICT1253P','No'),
+    ('S13','ICT1242','No'),
+    ('S14','TMS2022','Repeat'),
+    ('S14','TMS4302','No'),
+    ('S14','TMS6302','No'),
+    ('S14','TMS2022','No'),
+    ('S14','TMS2022','No'),
+    ('S15','BST4024','Repeat'),
+    ('S15','BST3021','No'),
+    ('S15','BST2343','No'),
+    ('S15','BST2331','No');
  
-  
-INSERT INTO Student_attendance(Student_ID,attendance_id)
-VALUES
-('S4','ATTIT002'),
-('S5','ATTIT003'),
-('S8','ATTIT004'),
-('S11','ATTIT005'),
-('S13','ATTIT006'),
-('S4','ATTIT008'),
-('S5','ATTIT009'),
-('S8','ATTIT0010'),
-('S11','ATTIT0011'),
-('S13','ATTIT0012'),
-('S7','ATTIT001'),
-('S10','ATTIT002'),
-('S15','ATTIT003'),
-('S7','ATTIT004'),
-('S10','ATTIT005'),
-('S15','ATTIT006'),
-('S6','ATTIT008'),
-('S9','ATTIT009'),
-('S12','ATTIT0010'),
-('S14','ATTIT0011'),
-('S4','ATTIT0013'),
-('S5','ATTIT0014'),
-('S8','ATTIT0015'),
-('S11','ATTIT0016'),
-('S13','ATTIT0017'),
-('S7','ATTIT007'),
-('S10','ATTIT008'),
-('S15','ATTIT009'),
-('S17','ATTIT0010'),
-('S10','ATTIT0011'),
-('S15','ATTIT0012'),
-('S3','ATTIT007'),
-('S4','ATTIT008'),
-('S5','ATTIT009'),
-('S6','ATTIT0010'),
-('S7','ATTIT0011');
-
-
-INSERT INTO marks_course (marks_id,course_code)
-VALUES
-    ('MKS01','ICT1233'),
-    ('MKS02','ICT1253'),
-    ('MKS03','ICT1212'),
-    ('MKS04','ICT1213'),
-    ('MKS19','ICT1242'),
-    ('MKS04','ICT1233'),
-    ('MKS05','ICT1253'),
-    ('MKS06','ICT1212'),
-    ('MKS07','ICT1213'),
-    ('MKS18','ICT1242'),
-    ('MKS08','ICT1233'),
-    ('MKS09','ICT1253'),
-    ('MKS10','ICT1212'),
-    ('MKS11','ICT1242'),
-    ('MKS12','ICT1233'),
-    ('MKS13','ICT1253'),
-    ('MKS14','ICT1212'),
-    ('MKS14','ICT1213'),
-    ('MKS17','ICT1242'),
-    ('MKS14','ICT1233'),
-    ('MKS15','ICT1253'),
-    ('MKS16','ICT1212'),
-    ('MKS17','ICT1213'),
-    ('MKS18','ICT1242');
-
-INSERT INTO attendance_course(course_code,attendance_code)
-VALUES
-    ('ICT1212','ATTIT002'),
-    ('ICT1212','ATTIT003'),
-    ('ICT1212','ATTIT004'),
-    ('ICT1212','ATTIT005'),
-    ('ICT1212','ATTIT006'),
-    ('ICT1212','ATTIT008'),
-    ('ICT1212','ATTIT009'),
-    ('ICT1212','ATTIT010'),
-    ('ICT1212','ATTIT011'),
-    ('ICT1212','ATTIT012'),
-    ('BST4024','ATTBT001'),
-    ('BST4024','ATTBT002'),
-    ('BST4024','ATTBT003'),
-    ('BST2343','ATTBT004'),
-    ('BST2343','ATTBT005'),
-    ('BST2343','ATTBT006'),
-    ('TMS2022','ATTET003'),
-    ('TMS2022','ATTET004'),
-    ('TMS2022','ATTET005'),
-    ('TMS2022','ATTET006'),
-    ('TMS6302','ATTET008'),
-    ('TMS6302','ATTET009'),
-    ('TMS6302','ATTET010'),
-    ('TMS6302','ATTET011'),
-    ('ICT1253','ATTIT013'),
-    ('ICT1253','ATTIT014'),
-    ('ICT1253','ATTIT015'),
-    ('ICT1253','ATTIT016'),
-    ('ATTIT017','ICT1253'),
-    ('ICT1242','ATTIT013'),
-    ('ICT1242','ATTIT014'),
-    ('ICT1242','ATTIT015'),
-    ('ICT1242','ATTIT016'),
-    ('ICT1242','ATTIT017'),
-    ('BST4024','ATTBT007'),
-    ('BST4024','ATTBT008'),
-    ('BST4024','ATTBT009'),
-    ('BST2343','ATTBT0010'),
-    ('BST2343','ATTBT0011'),
-    ('BST2343','ATTBT0012'),
-    ('ICT1242','ATTET007'),
-    ('ICT1242','ATTET008'),
-    ('ICT1242','ATTET009'),
-    ('ICT1242','ATTET010'),
-    ('ICT1242','ATTET011');
-
 
 INSERT INTO Department (Department_ID, Name,Admin_Id, Dean_ID)
 VALUES
@@ -752,7 +617,7 @@ INSERT INTO Tech_officer (Teach_officer_ID, NIC, Role)VALUES
     ('T5', '901234567G', 'Tech Officer'),
     ('T6', '012345678H', 'Tech Officer');
 
-    INSERT INTO Marks (Marks_Id, Student_ID, Course_code, Mid_exam, Final_exam, Quize1, Quize2, Quize3, Assignment1, Assignment2, Assignment3)
+INSERT INTO Marks (Marks_Id, Student_ID, Course_code, Mid_exam, Final_exam, Quize1, Quize2, Quize3, Assignment1, Assignment2, Assignment3)
 VALUES
     ('M01','s4','ICT1212',85, 92, 75, 80, 88, 50, 89, 93),
     ('M02','s5','ICT1212',78, 85, 70, 76, 82, 88, 80, 91),
@@ -853,16 +718,16 @@ INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
 
 
 
-    INSERT INTO Lecture_Course VALUES
-    ('L1','ICT1122'),
+INSERT INTO Lecture_Course VALUES
+    ('L1','ICT1222'),
     ('L1','ICT1212'),
-    ('L5','ICT1253'),
+    ('L5','ICT1233'),
     ('L5','ICT1212'),
     ('L1','ICT1242'),
     ('L2','TMS2022'),
     ('L2','TMS4302'),
     ('L2','TMS6302'),
-    ('L2','TMS6302'),
+    ('L2','ICT1253T'),
     ('L2','TMS7302'),
     ('L3','BST4024'),
     ('L3','BST3021'),
@@ -871,41 +736,33 @@ INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
     ('L4','ENG1212'),
     ('L2','TCS1212');
 
-INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
-    ('L1', '234567890G', 'ICT_HED', 'DP01'),
-    ('L2', '345678901H', 'ET_HED', 'DP02'),
-    ('L3', '456789012I', 'BST_HED', 'DP03'),
-    ('L4', '567890123J', 'Lecturer', 'DP03'),
-    ('L5', '678901234K', 'Professor', 'DP01'),
-    ('L6', '789012345B', 'Lecture','DP2');
 
 
 --Adding foreign keys
-ALTER TABLE Course ADD FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID);
-ALTER TABLE Attendance ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
-ALTER TABLE Attendance ADD FOREIGN KEY(Medical_Id) REFERENCES Medical(Medical_Id);
-ALTER TABLE Attendance ADD FOREIGN KEY(Teach_officer_ID) REFERENCES Tech_officer(Teach_officer_ID);
-ALTER TABLE Notice ADD FOREIGN KEY(lecture_ID) REFERENCES lecture(lecture_ID);
-ALTER TABLE Medical ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
-ALTER TABLE Medical ADD FOREIGN KEY(Tech_officer) REFERENCES Tech_officer(Teach_officer_ID);
+    ALTER TABLE Course ADD FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID);
+    ALTER TABLE Attendance ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
+    ALTER TABLE Attendance ADD FOREIGN KEY(Medical_Id) REFERENCES Medical(Medical_Id);
+    ALTER TABLE Attendance ADD FOREIGN KEY(Teach_officer_ID) REFERENCES Tech_officer(Teach_officer_ID);
+    ALTER TABLE Attendance ADD FOREIGN KEY(Course_code) REFERENCES Course(Course_code);
+    ALTER TABLE Notice ADD FOREIGN KEY(lecture_ID) REFERENCES lecture(lecture_ID);
+    ALTER TABLE Medical ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
+    ALTER TABLE Medical ADD FOREIGN KEY(Tech_officer) REFERENCES Tech_officer(Teach_officer_ID);
 
 --Add Foreign key
 ALTER TABLE User_Contact ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 ALTER TABLE Admin ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 ALTER TABLE Dean ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 ALTER TABLE Student ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+ALTER TABLE Student ADD FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID);
 
 --Add Foreign Key
-Alter table student_course ADD FOREIGN KEY(student_id) REFERENCES Student(Student_ID);
-Alter table student_course ADD FOREIGN KEY(course_code) REFERENCES Course(Course_code);
-Alter table student_attendance ADD FOREIGN KEY(attendance_id) REFERENCES Attendance(Attendance_ID);
-Alter table mraks_course ADD FOREIGN KEY(marks_id) REFERENCES Marks(Marks_ID);
-Alter table marks_course ADD FOREIGN KEY(course_code) REFERENCES Course(Course_ID);
-ALTER TABLE Department ADD FOREIGN KEY(Dean_ID) REFERENCES Dean(Dean_ID);
+Alter table student_course ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
+--Alter table student_course ADD FOREIGN KEY(course_code) REFERENCES Course(Course_code);
+Alter table Marks ADD FOREIGN KEY(Student_ID) REFERENCES Student(Student_ID);
+Alter table Marks ADD FOREIGN KEY(Course_code) REFERENCES Course(Course_code);
+--ALTER TABLE Department ADD FOREIGN KEY(Dean_ID) REFERENCES Dean(Dean_ID);
 ALTER TABLE Department ADD FOREIGN KEY(Admin_Id) REFERENCES Admin(Admin_Id);
-Alter table student_course ADD FOREIGN KEY(student_id) REFERENCES Student(Student_ID);
-Alter table student_course ADD FOREIGN KEY(course_code) REFERENCES Course(Course_code);
-ALTER TABLE Teach_officer_ID ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+ALTER TABLE Tech_officer ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 ALTER TABLE Dean ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 
 --Adding Foriegn keys
@@ -914,8 +771,9 @@ ALTER TABLE Lecture_Student ADD FOREIGN KEY (Lecture_ID) REFERENCES Lecture(Lect
 ALTER TABLE Student_Notice ADD FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID);
 ALTER TABLE Student_Notice ADD FOREIGN KEY (Notice_ID) REFERENCES Notice(Notice_ID);
 ALTER TABLE Lecture_Course ADD FOREIGN KEY (Lecture_ID) REFERENCES Lecture(Lecture_ID);
-ALTER TABLE Lecture_Course ADD FOREIGN KEY (Course_code) REFERENCES Course_code(Course_code);
+--ALTER TABLE Lecture_Course ADD FOREIGN KEY (Course_ID) REFERENCES Course(Course_code);
 ALTER TABLE Lecture ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
+ALTER TABLE Lecture ADD FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID);
 
 --Function of The System--
 --------------------------
@@ -1073,7 +931,8 @@ CREATE VIEW Final_Marks AS SELECT c.Student_ID,c.Course_code,c.CA_Mark*0.3,
 ((c.CA_Mark*0.3)+(m.Final_exam*0.7)) AS Final_Mark
 FROM Marks m,CA_Result c WHERE c.Marks_ID=m.Marks_ID
 AND c.Withot_Attendance_Eligibility='Eligible'
-GROUP BY Student_ID,Course_code
+GROUP BY c.Student_ID,c.Course_code;
+
 SELECT * FROM Final_Marks;
 
 
@@ -1084,8 +943,8 @@ r.Withot_Attendance_Eligibility AS CA_Eligibility,
 IF(Att.Eligibility='Eligible' AND 
 r.Withot_Attendance_Eligibility='Eligible','Eligible','Not Eligible') AS Finale_ligibility
 FROM Attendance_with_Medical Att,CA_Result r
-WHERE Att.Student_ID=r.Student_ID AND r.Course_code=Att.Course_code
-GROUP BY r.Student_ID,Course_code;
+WHERE Att.Student_ID=r.Student_ID AND r.Course_code=Att.Course_code;
+--GROUP BY r.Student_ID,r.Course_code;
 
 
 
@@ -1121,30 +980,39 @@ SELECT  e.Student_ID, e.Course_code,m.Final_Mark,
       WHEN(Final_Mark>= 0 AND Final_Mark<= 34.999999) THEN 0
    END AS 'Grade_Point',c.Credit AS Credit
 
-FROM Final_Marks m,Eligibility_CA_Attendance e,course c WHERE
-e.Course_code=m.Course_code AND e.Student_ID=m.Student_ID
+FROM 
+Final_Marks m
+INNER JOIN Eligibility_CA_Attendance e ON e.Course_code = m.Course_code AND e.Student_ID = m.Student_ID
+INNER JOIN course c ON c.Course_code = m.Course_code 
 
 AND e.Finale_ligibility = 'Eligible'
-GROUP BY e.Student_ID,Course_code;
+AND c.Department_ID='DP001';
 
-AND c.Credit='DP001'
+
+--GROUP BY e.Student_ID,e.Course_code;
+-- AND c.Credit='DP001'
+
+
 
 CREATE VIEW Student_Grade_CREDIT AS 
-SELECT sg.*,c.Credit,sg.Grade_Point * c.Credit AS MUL FROM
+SELECT sg. Student_ID,sg.Course_code,sg.Final_Mark,sg.Grade,sg.Grade_Point
+,c.Credit,sg.Grade_Point * c.Credit AS MUL FROM
  Student_Grade sg,Course c
-WHERE sg.Course_code=c.Course_code 
-GROUP BY sg.Student_ID;
+WHERE sg.Course_code=c.Course_code;
+--GROUP BY sg.Student_ID;
 
 --calculate SGPA
+
 CREATE VIEW SGPA AS SELECT
-sgc.Student_ID,(SUM(sgc.MUL))/18 AS SGPA
+sgc.Student_ID,(SUM(sgc.MUL))/SUM(c.Credit) AS SGPA
 FROM Student_Grade_CREDIT sgc,Course c  WHERE 
 c.Department_ID ='DP001'
 GROUP BY Student_ID;
 
+
 --CALCULATE CGPA
 CREATE VIEW CGPA AS SELECT
-sgc.Student_ID,(SUM(sgc.MUL))/16 AS CGPA
+sgc.Student_ID,(SUM(sgc.MUL))/SUM(c.Credit) AS CGPA
 FROM Student_Grade_CREDIT sgc,Course c WHERE 
 c.Department_ID='DP001' AND c.Course_code !='ENG1212'
  GROUP BY Student_ID;
@@ -1153,15 +1021,12 @@ c.Department_ID='DP001' AND c.Course_code !='ENG1212'
 CREATE VIEW ALL_GPA AS SELECT
 s.Student_ID,s.SGPA,c.CGPA FROM SGPA s,CGPA c
 WHERE s.Student_ID=c.Student_ID;
-SELECT SUM(c.Credit) FROM course;
+
 
 
 
 SELECT Department_ID,Name
 from Department;
-
-SELECT student_id,Attendance_ID
-from * from student_attendance;
 
 SELECT Mid_exam,Final_exam
 from Marks;
@@ -1194,13 +1059,13 @@ CALL course_register_no('ICT1212','s4');
 
 
 --view users details
-SELECT CONCAT(User.First_name,' ',User.Last_name),Tech_officer.Tech_officer_ID,User.NIC
+SELECT CONCAT(User.First_name,' ',User.Last_name),Tech_officer.Teach_officer_ID,User.NIC
 FROM Tech_officer,User
-WHERE tech_officer.NIC=User.NIC;
+WHERE Tech_officer.NIC=User.NIC;
 
-SELECT CONCAT(User.First_name,' ',User.Last_name),lecturer.Lecturer_ID,User.NIC
+SELECT CONCAT(User.First_name,' ',User.Last_name),Lecture.Lecture_ID,User.NIC
 FROM Lecture,User
-WHERE Lecturer.NIC=User.NIC;
+WHERE Lecture.NIC=User.NIC;
 
 SELECT CONCAT(User.First_name,' ',User.Last_name),Student.Student_ID,User.NIC
 FROM Student,User
@@ -1213,6 +1078,7 @@ WHERE Admin.NIC=User.NIC;
 SELECT CONCAT(User.First_name,' ',User.Last_name),Dean.Dean_ID,User.NIC
 FROM Dean,User
 WHERE Dean.NIC=User.NIC;
+
 
 --view all notices
 SELECT Date,description 
