@@ -146,3 +146,11 @@ GROUP BY Student_ID;
 SELECT student.Student_ID, medical.End_Date - medical.Start_Date AS 'Medical Date Count'
 FROM medical,student
 WHERE student.Student_ID=medical.Student_ID;
+
+SELECT Student_ID , Status
+FROM Student_Course
+WHERE Status = "Reapet";
+
+SELECT Student_ID , (Start_date - End_date)
+FROM medical;
+
