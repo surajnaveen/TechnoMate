@@ -40,6 +40,8 @@ ALTER TABLE Department ADD FOREIGN KEY(Admin_Id) REFERENCES Admin(Admin_Id);
 ALTER TABLE Tech_officer ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 ALTER TABLE Dean ADD FOREIGN KEY(NIC) REFERENCES User(NIC);
 
+--Data inserting
+
 INSERT INTO student_course(Student_ID,course_code,status)VALUES
     ('S1','ENG1212','NO'),
     ('S1','ICT1212','No'),
@@ -123,77 +125,7 @@ INSERT INTO Tech_officer (Teach_officer_ID, NIC, Role)VALUES
 
 INSERT INTO Marks (Marks_Id, Student_ID, Course_code, Mid_exam, Final_exam, Quize1, Quize2, Quize3, Assignment1, Assignment2, Assignment3)
 VALUES
-
--Data inserting
-INSERT INTO Lecture_Student VALUES
-    ('S1','L1'),
-    ('S1','L5'),
-    ('S2','L2'),
-    ('S3','L3'),
-    ('S4','L1'),
-    ('S4','L5'),
-    ('S5','L1'),
-    ('S5','L5'),
-    ('S6','L2'),
-    ('S7','L3'),
-    ('S8','L1'),
-    ('S8','L5'),
-    ('S9','L2'),
-    ('S10','L3'),
-    ('S11','L1'),
-    ('S11','L5'),
-    ('S12','L2'),
-    ('S13','L1'),
-    ('S13','L5'),
-    ('S14','L2'),
-    ('S15','L3');
-
-
-INSERT INTO Student_Notice VALUES 
-    ('S1','N5003'),
-    ('S1','N5001'),
-    ('S2','N5003'),
-    ('S2','N5002'),
-    ('S2','N5005'),
-    ('S4','N5003'),
-    ('S5','N5004'),
-    ('S5','N5004'),
-    ('S6','N5001'),
-    ('S7','N5003'),
-    ('S8','N5002'),
-    ('S8','N5005'),
-    ('S9','N5002'),
-    ('S9','N5006');
-
-
-INSERT INTO Lecture (Lecture_ID, NIC, Position, Department_ID) VALUES
-    ('L1', '234567890G', 'ICT_HED', 'DP001'),
-    ('L2', '345678901H', 'ET_HED', 'DP002'),
-    ('L3', '456789012I', 'BST_HED', 'DP003'),
-    ('L4', '567890123J', 'Lecturer', 'DP003'),
-    ('L5', '678901234K', 'Professor', 'DP001'),
-    ('L6', '789012345B', 'Lecture','DP002');
-
-
-
-INSERT INTO Lecture_Course VALUES
-    ('L1','ICT1222'),
-    ('L1','ICT1212'),
-    ('L5','ICT1233'),
-    ('L5','ICT1212'),
-    ('L1','ICT1242'),
-    ('L2','TMS2022'),
-    ('L2','TMS4302'),
-    ('L2','TMS6302'),
-    ('L2','ICT1253T'),
-    ('L2','TMS7302'),
-    ('L3','BST4024'),
-    ('L3','BST3021'),
-    ('L3','BST2343'),
-    ('L3','BST2331'),
-    ('L4','ENG1212'),
-    ('L2','TCS1212');
-    ('M01','s4','ICT1212',85, 92, 75, 80, 88, 50, 89, 93),
+ ('M01','s4','ICT1212',85, 92, 75, 80, 88, 50, 89, 93),
     ('M02','s5','ICT1212',78, 85, 70, 76, 82, 88, 80, 91),
     ('M03','s8','ICT1212',92, 88, 85, 89, 90, 94, 87, 92),
     ('M04','s11','ICT1212',65, 75, 60, 68, 74, 79, 72, 78),
@@ -238,6 +170,7 @@ INSERT INTO Lecture_Course VALUES
     ('M043','s8','ENG1212', 87, 80, 40, 85, 86, 82,50, 85),
     ('M044','s11','ENG1212', 82, 88, 70, 80, 81, 78,50, 80),
     ('M045','s13','ENG1212', 90, 90, 94, 96, 98, 92,50, 95);
+
 
 --By giving course code
 DELIMITER //
