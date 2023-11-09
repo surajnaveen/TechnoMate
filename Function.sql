@@ -6,7 +6,6 @@ UPDATE Marks
 SET Mid_exam = 95, Final_exam = 92
 WHERE Student_ID = 'S12';
 
-
 SELECT Department_ID,Name
 from Department;
 
