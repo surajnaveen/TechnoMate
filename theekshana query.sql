@@ -218,5 +218,5 @@ WHERE student_id = 'S12' AND course_code = 'ICT1122';
 
 
 SELECT concat(First_name,' ',Last_name)AS name, 
-YEAR(CURRENT_DATE) - YEAR(dob) - (RIGHT(CURRENT_DATE, 5) < RIGHT(dob, 5)) AS age
-FROM user;
+YEAR(NOW())-YEAR(Dob) as age
+from user;
